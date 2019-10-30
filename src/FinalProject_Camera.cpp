@@ -25,9 +25,9 @@ using namespace std;
 
 
 /////////////////////// audit log with multiple configurations /////////
-vector<Config2DFeatTrack> getConfigListForTest(bool singleTest) {
+vector<Config3DObjectTrack> getConfigListForTest(bool singleTest) {
 
-    vector<Config2DFeatTrack> configList;
+    vector<Config3DObjectTrack> configList;
     vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
     vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
 
@@ -36,7 +36,7 @@ vector<Config2DFeatTrack> getConfigListForTest(bool singleTest) {
     vector<string> matcherTypeSelectors = {"SEL_NN", "SEL_KNN"};
 
     if (singleTest) {
-        Config2DFeatTrack config;
+        Config3DObjectTrack config;
         config.detectorType = detectorTypes[0];
         config.descriptorType = descriptorTypes[0];
         config.matcherType = matcherTypes[0];
@@ -46,6 +46,7 @@ vector<Config2DFeatTrack> getConfigListForTest(bool singleTest) {
         config.bVis = true;
         config.bLimitKpts = true;
         config.maxKeypoints = 50;
+        config.bVisshow3DObjects = true;
 
         configList.push_back(config);
     } else {
@@ -60,7 +61,7 @@ vector<Config2DFeatTrack> getConfigListForTest(bool singleTest) {
                 for (auto matcherType:matcherTypes) {
                     for (auto matcherTypeMetric:matcherTypeMetrics) {
                         for (auto matcherTypeSelector:matcherTypeSelectors) {
-                            Config2DFeatTrack config;
+                            Config3DObjectTrack config;
                             config.detectorType = detectorType;
                             config.descriptorType = descriptorType;
                             config.matcherType = matcherType;
@@ -78,16 +79,31 @@ vector<Config2DFeatTrack> getConfigListForTest(bool singleTest) {
     return configList;
 }
 
-
+std::string joinVec(vector<long> v)
+{
+    std::stringstream ss;
+    for(size_t i = 0; i < v.size(); ++i)
+    {
+        if(i != 0)
+            ss << ",";
+        ss << v[i];
+    }
+    std::string s = ss.str();
+    return s;
+}
 void log(ofstream &detector_file, AuditLog &audit) {
 
     detector_file << "{" << endl;
 
     detector_file << "'isError':'" << audit.isError << "'," << endl;
     detector_file << "'image_name':'" << audit.image_name  << "'," << endl;
+    detector_file << "'lidar_file_name':'" << audit.lidar_file_name  << "'," << endl;
     detector_file << "'detectorType':'" << audit.config.detectorType << "'," << endl;
     detector_file << "'descriptorType':'" << audit.config.descriptorType  << "'," << endl;
     detector_file << "'matcherType':'" << audit.config.matcherType  << "'," << endl;
+
+    detector_file << "'ttc_camera':'" << joinVec(audit.ttc_camera) << "'," << endl;
+    detector_file << "'ttc_lidar':'" << joinVec(audit.ttc_lidar) << "'," << endl;
 
     detector_file << "'matcherTypeMetric':'" << audit.config.matcherTypeMetric << "'," << endl;
     detector_file << "'matcherTypeSelector':'" << audit.config.matcherTypeSelector  << "'," << endl;
@@ -104,6 +120,7 @@ void log(ofstream &detector_file, AuditLog &audit) {
     detector_file << "'bVis':" << audit.config.bVis  << "," << endl;
     detector_file << "'bLimitKpts':" << audit.config.bLimitKpts  << "," << endl;
     detector_file << "'maxKeypoints':" << audit.config.maxKeypoints  << "," << endl;
+    detector_file << "'bVisshow3DObjects':" << audit.config.bVisshow3DObjects  << "," << endl;
 
     detector_file << "}," << endl;
 }
@@ -112,12 +129,16 @@ void log_audit_header(ofstream &detector_file) {
     detector_file << "error";
 
     detector_file << "," << "image_name";
+    detector_file << "," << "lidar_file_name";
     detector_file << "," << "detectorType";
     detector_file << "," << "descriptorType";
 
     detector_file << "," << "matcherType";
     detector_file << "," << "matcherTypeMetric";
     detector_file << "," << "matcherTypeSelector";
+
+    detector_file << "," << "ttc_camera";
+    detector_file << "," << "ttc_lidar";
 
     detector_file << "," << "detect_time";
     detector_file << "," << "desc_time";
@@ -130,6 +151,7 @@ void log_audit_header(ofstream &detector_file) {
     detector_file << "," << "bVis";
     detector_file << "," << "bLimitKpts";
     detector_file << "," << "maxKeypoints";
+    detector_file << "," << "bVisshow3DObjects";
 
     detector_file  << endl;
 }
@@ -139,11 +161,16 @@ void log_audit(ofstream &detector_file, AuditLog &audit) {
     detector_file << audit.isError;
 
     detector_file << "," << audit.image_name;
+    detector_file << "," << audit.lidar_file_name;
     detector_file << "," << audit.config.detectorType;
     detector_file << "," << audit.config.descriptorType;
     detector_file << "," << audit.config.matcherType;
     detector_file << "," << audit.config.matcherTypeMetric;
     detector_file << "," << audit.config.matcherTypeSelector;
+
+    detector_file << ",\"" << joinVec(audit.ttc_camera) << "\""  ;
+    detector_file << ",\"" << joinVec(audit.ttc_lidar) << "\""  ;
+
 
     detector_file << "," << audit.detect_time;
     detector_file << "," << audit.desc_time;
@@ -156,6 +183,7 @@ void log_audit(ofstream &detector_file, AuditLog &audit) {
     detector_file << "," << audit.config.bVis;
     detector_file << "," << audit.config.bLimitKpts;
     detector_file << "," << audit.config.maxKeypoints;
+    detector_file << "," << audit.config.bVisshow3DObjects;
 
     detector_file   << endl;
 }
@@ -166,7 +194,7 @@ void log_audit(ofstream &detector_file, AuditLog &audit) {
 
 /////////////////////// run_3D_object_tracking  given a configuration /////////
 
-int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits, ofstream &detector_file_json, ofstream &detector_file) {
+int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audits, ofstream &detector_file_json, ofstream &detector_file) {
     /* INIT VARIABLES AND DATA STRUCTURES */
 
     // data location
@@ -220,231 +248,279 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
 
     for (size_t imgIndex = 0; imgIndex <= imgEndIndex - imgStartIndex; imgIndex+=imgStepWidth)
     {
-
         //audit logs
         AuditLog audit;
-        audit.config = config2d;
+        audit.config = config3d;
         audits.push_back(audit);
+        cout << endl;
+        cout << endl;
+        cout << "START " << config3d.detectorType <<  " " <<   config3d.descriptorType << " " ;
+        cout <<   config3d.matcherType << " " <<   config3d.matcherType << " " <<   config3d.matcherTypeMetric<< " " <<   config3d.matcherTypeSelector;
+        cout << endl;
+        try {
 
-        /* LOAD IMAGE INTO BUFFER */
+            /* LOAD IMAGE INTO BUFFER */
 
-        // assemble filenames for current index
-        ostringstream imgNumber;
-        imgNumber << setfill('0') << setw(imgFillWidth) << imgStartIndex + imgIndex;
-        string imgFullFilename = imgBasePath + imgPrefix + imgNumber.str() + imgFileType;
+            // assemble filenames for current index
+            ostringstream imgNumber;
+            imgNumber << setfill('0') << setw(imgFillWidth) << imgStartIndex + imgIndex;
+            string imgFullFilename = imgBasePath + imgPrefix + imgNumber.str() + imgFileType;
 
-        // load image from file
-        cv::Mat img = cv::imread(imgFullFilename);
+            // load image from file
+            cv::Mat img = cv::imread(imgFullFilename);
 
-        //audit
-        audit.image_name = imgFullFilename;
+            //audit
+            audit.image_name = imgFullFilename;
 
-        // push image into data frame buffer
-        DataFrame frame;
-        frame.cameraImg = img;
-        dataBuffer.push_back(frame);
-        if (dataBuffer.size() > dataBufferSize) {
-            //circular buffer
-            dataBuffer.erase(dataBuffer.begin());
-        }
-        cout << "#1 : LOAD IMAGE INTO BUFFER done" << endl;
-
-
-        /* DETECT & CLASSIFY OBJECTS */
-
-        float confThreshold = 0.2;
-        float nmsThreshold = 0.4;
-        detectObjects((dataBuffer.end() - 1)->cameraImg, (dataBuffer.end() - 1)->boundingBoxes, confThreshold, nmsThreshold,
-                      yoloBasePath, yoloClassesFile, yoloModelConfiguration, yoloModelWeights, bVis);
-
-        cout << "#2 : DETECT & CLASSIFY OBJECTS done" << endl;
+            // push image into data frame buffer
+            DataFrame frame;
+            frame.cameraImg = img;
+            dataBuffer.push_back(frame);
+            if (dataBuffer.size() > dataBufferSize) {
+                //circular buffer - dataBufferSize=2
+                dataBuffer.erase(dataBuffer.begin());
+            }
+            cout << "#1 : LOAD IMAGE INTO BUFFER done" << endl;
 
 
-        /* CROP LIDAR POINTS */
+            /* DETECT & CLASSIFY OBJECTS */
 
-        // load 3D Lidar points from file
-        string lidarFullFilename = imgBasePath + lidarPrefix + imgNumber.str() + lidarFileType;
-        std::vector<LidarPoint> lidarPoints;
-        loadLidarFromFile(lidarPoints, lidarFullFilename);
+            float confThreshold = 0.2;
+            float nmsThreshold = 0.4;
+            detectObjects((dataBuffer.end() - 1)->cameraImg, (dataBuffer.end() - 1)->boundingBoxes, confThreshold, nmsThreshold,
+                          yoloBasePath, yoloClassesFile, yoloModelConfiguration, yoloModelWeights, bVis, config3d, audit);
 
-        // remove Lidar points based on distance properties
-        float minZ = -1.5, maxZ = -0.9, minX = 2.0, maxX = 20.0, maxY = 2.0, minR = 0.1; // focus on ego lane
-        cropLidarPoints(lidarPoints, minX, maxX, maxY, minZ, maxZ, minR);
-
-        (dataBuffer.end() - 1)->lidarPoints = lidarPoints;
-
-        cout << "#3 : CROP LIDAR POINTS done" << endl;
+            cout << "#2 : DETECT & CLASSIFY OBJECTS done" << endl;
 
 
-        /* CLUSTER LIDAR POINT CLOUD */
+            /* CROP LIDAR POINTS */
 
-        // associate Lidar points with camera-based ROI
-        float shrinkFactor = 0.10; // shrinks each bounding box by the given percentage to avoid 3D object merging at the edges of an ROI
-        clusterLidarWithROI((dataBuffer.end()-1)->boundingBoxes, (dataBuffer.end() - 1)->lidarPoints, shrinkFactor, P_rect_00, R_rect_00, RT);
+            // load 3D Lidar points from file
+            string lidarFullFilename = imgBasePath + lidarPrefix + imgNumber.str() + lidarFileType;
+            std::vector<LidarPoint> lidarPoints;
+            loadLidarFromFile(lidarPoints, lidarFullFilename);
 
-        // Visualize 3D objects
-        bVis = true;
-        if(bVis)
-        {
-            show3DObjects((dataBuffer.end()-1)->boundingBoxes, cv::Size(4.0, 20.0), cv::Size(2000, 2000), true);
-        }
-        bVis = false;
+            //audit
+            audit.lidar_file_name = lidarFullFilename;
 
-        cout << "#4 : CLUSTER LIDAR POINT CLOUD done" << endl;
+            // remove Lidar points based on distance properties
+            float minZ = -1.5, maxZ = -0.9, minX = 2.0, maxX = 20.0, maxY = 2.0, minR = 0.1; // focus on ego lane
+            cropLidarPoints(lidarPoints, minX, maxX, maxY, minZ, maxZ, minR);
+
+            (dataBuffer.end() - 1)->lidarPoints = lidarPoints;
+
+            cout << "#3 : CROP LIDAR POINTS done" << endl;
 
 
-        // REMOVE THIS LINE BEFORE PROCEEDING WITH THE FINAL PROJECT
-        continue; // skips directly to the next image without processing what comes beneath
+            /* CLUSTER LIDAR POINT CLOUD */
 
-        /* DETECT IMAGE KEYPOINTS */
+            // associate Lidar points with camera-based ROI
+            float shrinkFactor = 0.10; // shrinks each bounding box by the given percentage to avoid 3D object merging at the edges of an ROI
+            clusterLidarWithROI((dataBuffer.end()-1)->boundingBoxes, (dataBuffer.end() - 1)->lidarPoints, shrinkFactor, P_rect_00, R_rect_00, RT, config3d, audit);
 
-        // convert current image to grayscale
-        cv::Mat imgGray;
-        cv::cvtColor((dataBuffer.end()-1)->cameraImg, imgGray, cv::COLOR_BGR2GRAY);
+            // Visualize 3D objects
+            bVis = config3d.bVisshow3DObjects ;//true;
+            if(bVis)
+            {
+                show3DObjects((dataBuffer.end()-1)->boundingBoxes, cv::Size(4.0, 20.0), cv::Size(2000, 2000), config3d, audit, true);
+            }
+            bVis = false;
 
-        // extract 2D keypoints from current image
-        vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        string detectorType = "SHITOMASI";
+            cout << "#4 : CLUSTER LIDAR POINT CLOUD done" << endl;
 
-        if (detectorType.compare("SHITOMASI") == 0)
-        {
-            detKeypointsShiTomasi(keypoints, imgGray, config2d, audit, false);
-        }
-        else
-        {
-            //...
-        }
 
-        // optional : limit number of keypoints (helpful for debugging and learning)
-        bool bLimitKpts = false;
-        if (bLimitKpts)
-        {
-            int maxKeypoints = 50;
+            // REMOVE THIS LINE BEFORE PROCEEDING WITH THE FINAL PROJECT
+            //continue; // skips directly to the next image without processing what comes beneath
+
+            /* DETECT IMAGE KEYPOINTS */
+
+            // convert current image to grayscale
+            cv::Mat imgGray;
+            cv::cvtColor((dataBuffer.end()-1)->cameraImg, imgGray, cv::COLOR_BGR2GRAY);
+
+            // extract 2D keypoints from current image
+            vector<cv::KeyPoint> keypoints; // create empty feature list for current image
+            string detectorType = config3d.detectorType; //"SHITOMASI";
+
+            //verify we have correct configuration arguments
+            std::vector<string> detectors{"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
+            if (std::find(detectors.begin(), detectors.end(), detectorType) != detectors.end()) {
+                cout << "detectorType " << detectorType << endl;
+            }
+            else
+            {
+                cout << "Invalid detectorType " << detectorType << endl;
+                return -1;
+            }
 
             if (detectorType.compare("SHITOMASI") == 0)
-            { // there is no response info, so keep the first 50 as they are sorted in descending quality order
-                keypoints.erase(keypoints.begin() + maxKeypoints, keypoints.end());
-            }
-            cv::KeyPointsFilter::retainBest(keypoints, maxKeypoints);
-            cout << " NOTE: Keypoints have been limited!" << endl;
-        }
-
-        // push keypoints and descriptor for current frame to end of data buffer
-        (dataBuffer.end() - 1)->keypoints = keypoints;
-
-        cout << "#5 : DETECT KEYPOINTS done" << endl;
-
-
-        /* EXTRACT KEYPOINT DESCRIPTORS */
-
-        cv::Mat descriptors;
-        string descriptorType = "BRISK"; // BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT
-        descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType, config2d, audit);
-
-        // push descriptors for current frame to end of data buffer
-        (dataBuffer.end() - 1)->descriptors = descriptors;
-
-        cout << "#6 : EXTRACT DESCRIPTORS done" << endl;
-
-
-        if (dataBuffer.size() > 1) // wait until at least two images have been processed
-        {
-
-            /* MATCH KEYPOINT DESCRIPTORS */
-
-            vector<cv::DMatch> matches;
-            string matcherType = "MAT_BF";        // MAT_BF, MAT_FLANN
-            string descriptorType = "DES_BINARY"; // DES_BINARY, DES_HOG
-            string selectorType = "SEL_NN";       // SEL_NN, SEL_KNN
-
-            matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
-                             (dataBuffer.end() - 2)->descriptors, (dataBuffer.end() - 1)->descriptors,
-                             matches, descriptorType, matcherType, selectorType, config2d, audit);
-
-            // store matches in current data frame
-            (dataBuffer.end() - 1)->kptMatches = matches;
-
-            cout << "#7 : MATCH KEYPOINT DESCRIPTORS done" << endl;
-
-
-            /* TRACK 3D OBJECT BOUNDING BOXES */
-
-            //// STUDENT ASSIGNMENT
-            //// TASK FP.1 -> match list of 3D objects (vector<BoundingBox>) between current and previous frame (implement ->matchBoundingBoxes)
-            map<int, int> bbBestMatches;
-            matchBoundingBoxes(matches, bbBestMatches, *(dataBuffer.end()-2), *(dataBuffer.end()-1)); // associate bounding boxes between current and previous frame using keypoint matches
-            //// EOF STUDENT ASSIGNMENT
-
-            // store matches in current data frame
-            (dataBuffer.end()-1)->bbMatches = bbBestMatches;
-
-            cout << "#8 : TRACK 3D OBJECT BOUNDING BOXES done" << endl;
-
-
-            /* COMPUTE TTC ON OBJECT IN FRONT */
-
-            // loop over all BB match pairs
-            for (auto it1 = (dataBuffer.end() - 1)->bbMatches.begin(); it1 != (dataBuffer.end() - 1)->bbMatches.end(); ++it1)
             {
-                // find bounding boxes associates with current match
-                BoundingBox *prevBB, *currBB;
-                for (auto it2 = (dataBuffer.end() - 1)->boundingBoxes.begin(); it2 != (dataBuffer.end() - 1)->boundingBoxes.end(); ++it2)
-                {
-                    if (it1->second == it2->boxID) // check wether current match partner corresponds to this BB
-                    {
-                        currBB = &(*it2);
-                    }
+                detKeypointsShiTomasi(keypoints, imgGray, config3d, audit, false);
+            }
+            else if (detectorType.compare("HARRIS") == 0)
+            {
+                detKeypointsHarris(keypoints, imgGray, config3d, audit, false);
+            }
+            else
+            {
+                // FAST, BRISK, ORB, AKAZE, SIFT
+                detKeypointsModern(keypoints, imgGray, detectorType, config3d, audit, false);
+            }
+
+            // optional : limit number of keypoints (helpful for debugging and learning)
+            bool bLimitKpts =  config3d.bLimitKpts;//false;
+            if (bLimitKpts)
+            {
+                int maxKeypoints = 50;
+
+                if (detectorType.compare("SHITOMASI") == 0)
+                { // there is no response info, so keep the first 50 as they are sorted in descending quality order
+                    keypoints.erase(keypoints.begin() + maxKeypoints, keypoints.end());
                 }
+                cv::KeyPointsFilter::retainBest(keypoints, maxKeypoints);
+                cout << " NOTE: Keypoints have been limited!" << endl;
+            }
 
-                for (auto it2 = (dataBuffer.end() - 2)->boundingBoxes.begin(); it2 != (dataBuffer.end() - 2)->boundingBoxes.end(); ++it2)
+            // push keypoints and descriptor for current frame to end of data buffer
+            (dataBuffer.end() - 1)->keypoints = keypoints;
+
+            cout << "#5 : DETECT KEYPOINTS done" << endl;
+
+
+            /* EXTRACT KEYPOINT DESCRIPTORS */
+
+            cv::Mat descriptors;
+            string descriptorType =  config3d.descriptorType ;//"BRISK"; // BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT
+            descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType, config3d, audit);
+
+            // push descriptors for current frame to end of data buffer
+            (dataBuffer.end() - 1)->descriptors = descriptors;
+
+            cout << "#6 : EXTRACT DESCRIPTORS done" << endl;
+
+
+            if (dataBuffer.size() > 1) // wait until at least two images have been processed
+            {
+
+                /* MATCH KEYPOINT DESCRIPTORS */
+
+                vector<cv::DMatch> matches;
+                string matcherType = config3d.matcherType;//"MAT_BF";        // MAT_BF, MAT_FLANN
+                string matchDescriptorType = config3d.matcherTypeMetric;//"DES_BINARY"; // DES_BINARY, DES_HOG
+                string selectorType =  config3d.matcherTypeSelector;//"SEL_NN";       // SEL_NN, SEL_KNN
+
+                matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
+                                 (dataBuffer.end() - 2)->descriptors, (dataBuffer.end() - 1)->descriptors,
+                                 matches, matchDescriptorType, matcherType, selectorType, config3d, audit);
+
+                // store matches in current data frame
+                (dataBuffer.end() - 1)->kptMatches = matches;
+
+                cout << "#7 : MATCH KEYPOINT DESCRIPTORS done" << endl;
+
+
+                /* TRACK 3D OBJECT BOUNDING BOXES */
+
+                //// STUDENT ASSIGNMENT
+                //// TASK FP.1 -> match list of 3D objects (vector<BoundingBox>) between current and previous frame (implement ->matchBoundingBoxes)
+                map<int, int> bbBestMatches;
+                matchBoundingBoxes(matches, bbBestMatches, *(dataBuffer.end()-2), *(dataBuffer.end()-1) , config3d, audit); // associate bounding boxes between current and previous frame using keypoint matches
+                //// EOF STUDENT ASSIGNMENT
+
+                // store matches in current data frame
+                (dataBuffer.end()-1)->bbMatches = bbBestMatches;
+
+                cout << "#8 : TRACK 3D OBJECT BOUNDING BOXES done" << endl;
+
+
+                /* COMPUTE TTC ON OBJECT IN FRONT */
+
+                // loop over all BB match pairs
+                for (auto it1 = (dataBuffer.end() - 1)->bbMatches.begin(); it1 != (dataBuffer.end() - 1)->bbMatches.end(); ++it1)
                 {
-                    if (it1->first == it2->boxID) // check wether current match partner corresponds to this BB
+                    // find bounding boxes associates with current match
+                    BoundingBox *prevBB, *currBB;
+                    for (auto it2 = (dataBuffer.end() - 1)->boundingBoxes.begin(); it2 != (dataBuffer.end() - 1)->boundingBoxes.end(); ++it2)
                     {
-                        prevBB = &(*it2);
+                        if (it1->second == it2->boxID) // check wether current match partner corresponds to this BB
+                        {
+                            currBB = &(*it2);
+                        }
                     }
-                }
 
-                // compute TTC for current match
-                if( currBB->lidarPoints.size()>0 && prevBB->lidarPoints.size()>0 ) // only compute TTC if we have Lidar points
-                {
-                    //// STUDENT ASSIGNMENT
-                    //// TASK FP.2 -> compute time-to-collision based on Lidar data (implement -> computeTTCLidar)
-                    double ttcLidar;
-                    computeTTCLidar(prevBB->lidarPoints, currBB->lidarPoints, sensorFrameRate, ttcLidar);
-                    //// EOF STUDENT ASSIGNMENT
-
-                    //// STUDENT ASSIGNMENT
-                    //// TASK FP.3 -> assign enclosed keypoint matches to bounding box (implement -> clusterKptMatchesWithROI)
-                    //// TASK FP.4 -> compute time-to-collision based on camera (implement -> computeTTCCamera)
-                    double ttcCamera;
-                    clusterKptMatchesWithROI(*currBB, (dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->kptMatches);
-                    computeTTCCamera((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, currBB->kptMatches, sensorFrameRate, ttcCamera);
-                    //// EOF STUDENT ASSIGNMENT
-
-                    bVis = true;
-                    if (bVis)
+                    for (auto it2 = (dataBuffer.end() - 2)->boundingBoxes.begin(); it2 != (dataBuffer.end() - 2)->boundingBoxes.end(); ++it2)
                     {
-                        cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();
-                        showLidarImgOverlay(visImg, currBB->lidarPoints, P_rect_00, R_rect_00, RT, &visImg);
-                        cv::rectangle(visImg, cv::Point(currBB->roi.x, currBB->roi.y), cv::Point(currBB->roi.x + currBB->roi.width, currBB->roi.y + currBB->roi.height), cv::Scalar(0, 255, 0), 2);
-
-                        char str[200];
-                        sprintf(str, "TTC Lidar : %f s, TTC Camera : %f s", ttcLidar, ttcCamera);
-                        putText(visImg, str, cv::Point2f(80, 50), cv::FONT_HERSHEY_PLAIN, 2, cv::Scalar(0,0,255));
-
-                        string windowName = "Final Results : TTC";
-                        cv::namedWindow(windowName, 4);
-                        cv::imshow(windowName, visImg);
-                        cout << "Press key to continue to next frame" << endl;
-                        cv::waitKey(0);
+                        if (it1->first == it2->boxID) // check wether current match partner corresponds to this BB
+                        {
+                            prevBB = &(*it2);
+                        }
                     }
-                    bVis = false;
 
-                } // eof TTC computation
-            } // eof loop over all BB matches
+                    // compute TTC for current match
+                    if( currBB->lidarPoints.size()>0 && prevBB->lidarPoints.size()>0 ) // only compute TTC if we have Lidar points
+                    {
+                        //// STUDENT ASSIGNMENT
+                        //// TASK FP.2 -> compute time-to-collision based on Lidar data (implement -> computeTTCLidar)
+                        double ttcLidar;
+                        computeTTCLidar(prevBB->lidarPoints, currBB->lidarPoints, sensorFrameRate, ttcLidar, config3d, audit);
+                        //// EOF STUDENT ASSIGNMENT
 
+                        //// STUDENT ASSIGNMENT
+                        //// TASK FP.3 -> assign enclosed keypoint matches to bounding box (implement -> clusterKptMatchesWithROI)
+                        //// TASK FP.4 -> compute time-to-collision based on camera (implement -> computeTTCCamera)
+                        double ttcCamera;
+                        clusterKptMatchesWithROI(*currBB, (dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->kptMatches , config3d, audit);
+                        computeTTCCamera((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, currBB->kptMatches, sensorFrameRate, ttcCamera, config3d, audit);
+                        //// EOF STUDENT ASSIGNMENT
+
+                        bVis = config3d.bVis ;//true;
+                        if (bVis)
+                        {
+                            cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();
+                            showLidarImgOverlay(visImg, currBB->lidarPoints, P_rect_00, R_rect_00, RT, &visImg);
+                            cv::rectangle(visImg, cv::Point(currBB->roi.x, currBB->roi.y), cv::Point(currBB->roi.x + currBB->roi.width, currBB->roi.y + currBB->roi.height), cv::Scalar(0, 255, 0), 2);
+
+                            char str[200];
+                            sprintf(str, "TTC Lidar : %f s, TTC Camera : %f s", ttcLidar, ttcCamera);
+                            putText(visImg, str, cv::Point2f(80, 50), cv::FONT_HERSHEY_PLAIN, 2, cv::Scalar(0,0,255));
+
+                            string windowName = "Final Results : TTC";
+                            cv::namedWindow(windowName, 4);
+                            cv::imshow(windowName, visImg);
+                            cout << "Press key to continue to next frame" << endl;
+                            cv::waitKey(0);
+                        }
+                        bVis = false;
+
+                    } // eof TTC computation
+                } // eof loop over all BB matches
+
+            }
+
+            //audit logs
+            log(detector_file_json, audit);
+            log_audit(detector_file, audit);
+
+        } catch (...) {
+
+            cout << "exception happened " << config3d.detectorType <<  " " <<   config3d.descriptorType << " " ;
+            cout <<   config3d.matcherType << " " <<   config3d.matcherType << " " <<   config3d.matcherTypeMetric<< " " <<   config3d.matcherTypeSelector;
+
+            audit.isError = true;
+            log(detector_file_json, audit);
+            log_audit(detector_file, audit);
+
+            try
+            {
+                auto expPtr = std::current_exception();
+                if(expPtr) std::rethrow_exception(expPtr);
+            }
+            catch(const std::exception& e) //it would not work if you pass by value
+            {
+                cout << "exception ??? " ;
+                std::cout << e.what() << endl;
+            }
         }
-
     } // eof loop over all images
 
     return 0;
@@ -467,8 +543,8 @@ int main(int argc, const char *argv[])
     // for testing one set of algorithms use singleTest = true
     //when singleTest = false will test all combinations
     bool singleTest = false;
-    //int run_2D_tracking(Config2DFeatTrack &config, vector<AuditLog> &audits)
-    vector<Config2DFeatTrack> configList;
+    //int run_2D_tracking(Config3DObjectTrack &config, vector<AuditLog> &audits)
+    vector<Config3DObjectTrack> configList;
     if(singleTest) {
 
         //default single experiment ...
@@ -481,7 +557,7 @@ int main(int argc, const char *argv[])
 //        vector<string> matcherTypeMetrics = {"DES_BINARY", "DES_HOG"};
 //        vector<string> matcherTypeSelectors = {"SEL_NN", "SEL_KNN"};
 
-        Config2DFeatTrack config;
+        Config3DObjectTrack config;
         config.detectorType = "SHITOMASI";
         config.descriptorType ="BRISK";
         config.matcherType = "MAT_BF";
@@ -491,7 +567,7 @@ int main(int argc, const char *argv[])
         config.bVis = true;
         config.bLimitKpts = true;
         config.maxKeypoints = 50;
-
+        config.bVisshow3DObjects = true;
         configList.push_back(config);
     }
     else
@@ -501,10 +577,10 @@ int main(int argc, const char *argv[])
 
 
 
-    for (auto config2d = configList.begin(); config2d != configList.end(); ++config2d) {
+    for (auto config3d = configList.begin(); config3d != configList.end(); ++config3d) {
         try {
             //original main code is moved into this method.... so that we can run multiple test
-            run_3D_object_tracking((*config2d), audits, detector_file_json, detector_file);
+            run_3D_object_tracking((*config3d), audits, detector_file_json, detector_file);
         } catch (...) {
             cout << "exception in main " ;
             try

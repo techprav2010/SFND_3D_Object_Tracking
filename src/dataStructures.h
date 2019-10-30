@@ -39,7 +39,7 @@ struct DataFrame { // represents the available sensor information at the same ti
 
 
 // audit experiment results with multiple configurations
-struct Config2DFeatTrack {
+struct Config3DObjectTrack {
     std::string detectorType = "SHITOMASI";
     std::string descriptorType = "BRISK"; // BRIEF, ORB, FREAK, AKAZE, SIFT
 
@@ -50,12 +50,18 @@ struct Config2DFeatTrack {
     bool bVis = false;
     bool bLimitKpts = false;
     int maxKeypoints = 50;
+
+    bool bVisshow3DObjects= false;
 };
 
 // audit experiment results
 struct AuditLog {
-    Config2DFeatTrack config ;
+    Config3DObjectTrack config ;
     std::string image_name ="";
+    std::string lidar_file_name ="";
+    std::vector<long> ttc_camera;
+    std::vector<long> ttc_lidar;
+
     bool isError = false;
     long match_time = 0;
     long match_keypoints_size = 0;

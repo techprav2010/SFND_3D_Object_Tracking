@@ -15,7 +15,7 @@ using namespace std;
 
 // Find best matches for keypoints in two camera images based on several matching methods
 void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::KeyPoint> &kPtsRef, cv::Mat &descSource, cv::Mat &descRef,
-                      std::vector<cv::DMatch> &matches, std::string descriptorType, std::string matcherType, std::string selectorType, Config2DFeatTrack &config, AuditLog &audit) {
+                      std::vector<cv::DMatch> &matches, std::string descriptorType, std::string matcherType, std::string selectorType, Config3DObjectTrack &config3d, AuditLog &audit) {
 
     //    vector<string> matcherTypes = {"MAT_BF", "MAT_FLANN"};
     //    vector<string> matcherTypeMetrics = {"DES_BINARY", "DES_HOG"};
@@ -67,7 +67,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
 }
 
 // Use one of several types of state-of-art descriptors to uniquely identify keypoints
-void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descriptors, string descriptorType, Config2DFeatTrack &config, AuditLog &audit)
+void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descriptors, string descriptorType, Config3DObjectTrack &config3d, AuditLog &audit)
 {
     // select appropriate descriptor
     double t = (double)cv::getTickCount();
@@ -119,7 +119,7 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
 }
 
 // Detect keypoints in image using the traditional Shi-Thomasi detector
-void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, Config2DFeatTrack &config, AuditLog &audit, bool bVis)
+void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, Config3DObjectTrack &config3d, AuditLog &audit, bool bVis)
 {
     //    vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
 
@@ -164,7 +164,7 @@ void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, Config
 
 }
 
-void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, Config2DFeatTrack &config, AuditLog &audit, bool bVis )
+void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, Config3DObjectTrack &config3d, AuditLog &audit, bool bVis )
 {
     //    vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
     // Detector parameters
@@ -250,7 +250,7 @@ void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, Conf
     }
 }
 
-void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std::string detectorType, Config2DFeatTrack &config, AuditLog &audit, bool bVis ){
+void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std::string detectorType, Config3DObjectTrack &config3d, AuditLog &audit, bool bVis ){
 
     //    vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
 
