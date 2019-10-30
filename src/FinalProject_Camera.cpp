@@ -22,6 +22,147 @@
 
 using namespace std;
 
+
+
+/////////////////////// audit log with multiple configurations /////////
+vector<Config2DFeatTrack> getConfig(bool singleTest) {
+
+    vector<Config2DFeatTrack> configList;
+    vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
+    vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
+
+    vector<string> matcherTypes = {"MAT_BF", "MAT_FLANN"};
+    vector<string> matcherTypeMetrics = {"DES_BINARY", "DES_HOG"};
+    vector<string> matcherTypeSelectors = {"SEL_NN", "SEL_KNN"};
+
+    if (singleTest) {
+        Config2DFeatTrack config;
+        config.detectorType = detectorTypes[0];
+        config.descriptorType = descriptorTypes[0];
+        config.matcherType = matcherTypes[0];
+        config.matcherTypeMetric = matcherTypeMetrics[0];
+        config.matcherTypeSelector = matcherTypeSelectors[0];
+
+        config.bVis = true;
+        config.bLimitKpts = true;
+        config.maxKeypoints = 50;
+
+        configList.push_back(config);
+    } else {
+        for (auto detectorType:detectorTypes) {
+            bool write_detector = false;
+
+            for (auto descriptorType:descriptorTypes) // start
+            {
+//                if (descriptorType.compare("AKAZE") == 0)
+//                    continue;
+
+                for (auto matcherType:matcherTypes) {
+                    for (auto matcherTypeMetric:matcherTypeMetrics) {
+                        for (auto matcherTypeSelector:matcherTypeSelectors) {
+                            Config2DFeatTrack config;
+                            config.detectorType = detectorType;
+                            config.descriptorType = descriptorType;
+                            config.matcherType = matcherType;
+                            config.matcherTypeMetric = matcherTypeMetric;
+                            config.matcherTypeSelector = matcherTypeSelector;
+
+                            configList.push_back(config);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    return configList;
+}
+
+
+void log(ofstream &detector_file, AuditLog &audit) {
+
+    detector_file << "{" << endl;
+
+    detector_file << "'isError':'" << audit.isError << "'," << endl;
+    detector_file << "'image_name':'" << audit.image_name  << "'," << endl;
+    detector_file << "'detectorType':'" << audit.config.detectorType << "'," << endl;
+    detector_file << "'descriptorType':'" << audit.config.descriptorType  << "'," << endl;
+    detector_file << "'matcherType':'" << audit.config.matcherType  << "'," << endl;
+
+    detector_file << "'matcherTypeMetric':'" << audit.config.matcherTypeMetric << "'," << endl;
+    detector_file << "'matcherTypeSelector':'" << audit.config.matcherTypeSelector  << "'," << endl;
+
+    detector_file << "'detect_time_ms':" << audit.detect_time << "," << endl;
+    detector_file << "'desc_time_ms':" << audit.desc_time << "," << endl;
+    detector_file << "'match_time_ms':" << audit.match_time << "," << endl;
+
+    detector_file << "'detect_keypoints_size':" << audit.detect_keypoints_size << "," << endl;
+    detector_file << "'match_keypoints_size':" << audit.match_keypoints_size << "," << endl;
+    detector_file << "'match_removed_keypoints_size':" << audit.match_removed_keypoints_size << "," << endl;
+
+
+    detector_file << "'bVis':" << audit.config.bVis  << "," << endl;
+    detector_file << "'bLimitKpts':" << audit.config.bLimitKpts  << "," << endl;
+    detector_file << "'maxKeypoints':" << audit.config.maxKeypoints  << "," << endl;
+
+    detector_file << "}," << endl;
+}
+
+void log_audit_header(ofstream &detector_file) {
+    detector_file << "error";
+
+    detector_file << "," << "image_name";
+    detector_file << "," << "detectorType";
+    detector_file << "," << "descriptorType";
+
+    detector_file << "," << "matcherType";
+    detector_file << "," << "matcherTypeMetric";
+    detector_file << "," << "matcherTypeSelector";
+
+    detector_file << "," << "detect_time";
+    detector_file << "," << "desc_time";
+    detector_file << "," << "match_time";
+
+    detector_file << "," << "detect_keypoints_size" ;
+    detector_file << "," << "match_keypoints_size";
+    detector_file << "," << "match_removed_keypoints_size";
+
+    detector_file << "," << "bVis";
+    detector_file << "," << "bLimitKpts";
+    detector_file << "," << "maxKeypoints";
+
+    detector_file  << endl;
+}
+
+void log_audit(ofstream &detector_file, AuditLog &audit) {
+
+    detector_file << audit.isError;
+
+    detector_file << "," << audit.image_name;
+    detector_file << "," << audit.config.detectorType;
+    detector_file << "," << audit.config.descriptorType;
+    detector_file << "," << audit.config.matcherType;
+    detector_file << "," << audit.config.matcherTypeMetric;
+    detector_file << "," << audit.config.matcherTypeSelector;
+
+    detector_file << "," << audit.detect_time;
+    detector_file << "," << audit.desc_time;
+    detector_file << "," << audit.match_time;
+
+    detector_file << "," << audit.detect_keypoints_size ;
+    detector_file << "," << audit.match_keypoints_size;
+    detector_file << "," << audit.match_removed_keypoints_size;
+
+    detector_file << "," << audit.config.bVis;
+    detector_file << "," << audit.config.bLimitKpts;
+    detector_file << "," << audit.config.maxKeypoints;
+
+    detector_file   << endl;
+}
+
+
+/////////////////////// audit log END /////////
+
 /* MAIN PROGRAM */
 int main(int argc, const char *argv[])
 {
