@@ -25,7 +25,7 @@ using namespace std;
 
 
 /////////////////////// audit log with multiple configurations /////////
-vector<Config2DFeatTrack> getConfig(bool singleTest) {
+vector<Config2DFeatTrack> getConfigListForTest(bool singleTest) {
 
     vector<Config2DFeatTrack> configList;
     vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
@@ -442,5 +442,75 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
 /* MAIN PROGRAM */
 int main(int argc, const char *argv[])
 {
+    ofstream detector_file;
+    detector_file.open("../results.csv");
 
+    ofstream detector_file_json;
+    detector_file_json.open("../results.json");
+    detector_file_json << "[" << endl;
+
+    vector<AuditLog> audits;
+    log_audit_header(detector_file);
+
+    // for testing one set of algorithms use singleTest = true
+    //when singleTest = false will test all combinations
+    bool singleTest = false;
+    //int run_2D_tracking(Config2DFeatTrack &config, vector<AuditLog> &audits)
+    vector<Config2DFeatTrack> configList;
+    if(singleTest) {
+
+        //default single experiment ...
+        //configList = getConfigListForTest(true);
+        //or manually config below
+
+//        vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
+//        vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
+//        vector<string> matcherTypes = {"MAT_BF", "MAT_FLANN"};
+//        vector<string> matcherTypeMetrics = {"DES_BINARY", "DES_HOG"};
+//        vector<string> matcherTypeSelectors = {"SEL_NN", "SEL_KNN"};
+
+        Config2DFeatTrack config;
+        config.detectorType = "SHITOMASI";
+        config.descriptorType ="BRISK";
+        config.matcherType = "MAT_BF";
+        config.matcherTypeMetric ="DES_BINARY";
+        config.matcherTypeSelector = "SEL_NN";
+
+        config.bVis = true;
+        config.bLimitKpts = true;
+        config.maxKeypoints = 50;
+
+        configList.push_back(config);
+    }
+    else
+    {
+        configList = getConfigListForTest(false);
+    }
+
+
+
+    for (auto config2d = configList.begin(); config2d != configList.end(); ++config2d) {
+        try {
+            //original main code is moved into this method.... so that we can run multiple test
+            run_3D_object_tracking((*config2d), audits, detector_file_json, detector_file);
+        } catch (...) {
+            cout << "exception in main " ;
+            try
+            {
+                auto expPtr = std::current_exception();
+                if(expPtr) std::rethrow_exception(expPtr);
+            }
+            catch(const std::exception& e) //it would not work if you pass by value
+            {
+                cout << "real exception in main ??? " ;
+                cout << e.what() ;
+            }
+            cout << endl;
+        }
+    }
+
+//    log_audits(audits);
+    detector_file_json << "]" << endl;
+    detector_file.close();
+    detector_file_json.close();
 }
