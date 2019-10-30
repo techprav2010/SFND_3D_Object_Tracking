@@ -220,6 +220,12 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
 
     for (size_t imgIndex = 0; imgIndex <= imgEndIndex - imgStartIndex; imgIndex+=imgStepWidth)
     {
+
+        //audit logs
+        AuditLog audit;
+        audit.config = config2d;
+        audits.push_back(audit);
+
         /* LOAD IMAGE INTO BUFFER */
 
         // assemble filenames for current index
@@ -230,11 +236,17 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
         // load image from file
         cv::Mat img = cv::imread(imgFullFilename);
 
+        //audit
+        audit.image_name = imgFullFilename;
+
         // push image into data frame buffer
         DataFrame frame;
         frame.cameraImg = img;
         dataBuffer.push_back(frame);
-
+        if (dataBuffer.size() > dataBufferSize) {
+            //circular buffer
+            dataBuffer.erase(dataBuffer.begin());
+        }
         cout << "#1 : LOAD IMAGE INTO BUFFER done" << endl;
 
 
@@ -296,7 +308,7 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
 
         if (detectorType.compare("SHITOMASI") == 0)
         {
-            detKeypointsShiTomasi(keypoints, imgGray, false);
+            detKeypointsShiTomasi(keypoints, imgGray, config2d, audit, false);
         }
         else
         {
@@ -327,7 +339,7 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
 
         cv::Mat descriptors;
         string descriptorType = "BRISK"; // BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT
-        descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType);
+        descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType, config2d, audit);
 
         // push descriptors for current frame to end of data buffer
         (dataBuffer.end() - 1)->descriptors = descriptors;
@@ -347,7 +359,7 @@ int run_3D_object_tracking(Config2DFeatTrack &config2d, vector<AuditLog> audits,
 
             matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
                              (dataBuffer.end() - 2)->descriptors, (dataBuffer.end() - 1)->descriptors,
-                             matches, descriptorType, matcherType, selectorType);
+                             matches, descriptorType, matcherType, selectorType, config2d, audit);
 
             // store matches in current data frame
             (dataBuffer.end() - 1)->kptMatches = matches;
