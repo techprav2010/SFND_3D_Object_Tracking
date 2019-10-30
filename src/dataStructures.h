@@ -37,4 +37,32 @@ struct DataFrame { // represents the available sensor information at the same ti
     std::map<int,int> bbMatches; // bounding box matches between previous and current frame
 };
 
+
+// audit experiment results with multiple configurations
+struct Config2DFeatTrack {
+    std::string detectorType = "SHITOMASI";
+    std::string descriptorType = "BRISK"; // BRIEF, ORB, FREAK, AKAZE, SIFT
+
+    std::string matcherType = "MAT_BF";        // MAT_BF, MAT_FLANN
+    std::string matcherTypeMetric = "DES_BINARY"; // DES_BINARY, DES_HOG
+    std::string matcherTypeSelector = "SEL_NN";       // SEL_NN, SEL_KNN
+
+    bool bVis = false;
+    bool bLimitKpts = false;
+    int maxKeypoints = 50;
+};
+
+// audit experiment results
+struct AuditLog {
+    Config2DFeatTrack config ;
+    std::string image_name ="";
+    bool isError = false;
+    long match_time = 0;
+    long match_keypoints_size = 0;
+    long match_removed_keypoints_size = 0;
+    long desc_time  = 0;
+    long detect_time = 0;
+    long detect_keypoints_size = 0;
+};
+
 #endif /* dataStructures_h */
