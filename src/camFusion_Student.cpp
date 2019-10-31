@@ -261,9 +261,10 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
                 bool matrchInCurrFrame = (it1->roi.contains(currFrame.keypoints[it3->trainIdx].pt));
                 bool matrchInPrevFrame =  (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) ;
                 //bool matrchInPrevFrame = matrchInCurrFrame ? (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) : false;
-                cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
                 if(matrchInCurrFrame && matrchInPrevFrame){
-                    matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
+                    //matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
+                    //cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
+                    matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, it2->boxID)); 
                 }
             }
         }
@@ -271,15 +272,21 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
         int trainIdx = -1;
         int countMax = 0;
 
-        if (max >= threshold && matchedPairMultimap.size() > 0)
+        if ( matchedPairMultimap.size() > 0)
         {
             for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); matchedPair++)
             {
-                cout << "matchedPairMultimap.count(matchedPair->first) " << matchedPairMultimap.count(matchedPair->first) << " " << trainIdx << endl;
+                //cout << "matchedPairMultimap.count(matchedPair->first) " << matchedPairMultimap.count(matchedPair->first) << " " << trainIdx << endl;
                 if (matchedPairMultimap.count(matchedPair->first) > countMax)
                 {
+
                     countMax = matchedPairMultimap.count(matchedPair->first);
-                    trainIdx = matchedPair->first;
+                    trainIdx = matchedPair->first;                    
+                    
+                    cout << "matchedPairMultimap.count(matchedPair->first) " 
+                    << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first) 
+                    << " " << trainIdx << endl;
+
                 }
             }
             if(trainIdx > -1)
