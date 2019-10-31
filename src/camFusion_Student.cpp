@@ -248,6 +248,11 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
             roi_prev.push_back(it->x);
     }
 
+    if (roi_prev.size() == 0 || roi_cur.size() )
+    {
+        TTC = NAN;
+        return;
+    }
     std::sort(roi_prev.begin(), roi_prev.end());
     std::sort(roi_cur.begin(), roi_cur.end());
 
