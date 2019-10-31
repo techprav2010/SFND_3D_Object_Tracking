@@ -602,7 +602,7 @@ int main(int argc, const char *argv[])
     bool shortTest = true;
     string file_prefix = "short";
     //if argument is passed should be = single/short/all
-    if (argc == 1 ) {
+    if (argc > 0 ) {
         if(argv[0] == "single"){
             singleTest = true;
         }
