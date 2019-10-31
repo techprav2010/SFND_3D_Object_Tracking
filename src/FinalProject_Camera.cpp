@@ -598,8 +598,9 @@ int main(int argc, const char *argv[])
 {
     // use singleTest &  singleTestConfig for one experiment
     bool singleTest = false;
-    bool singleTestConfig=1;
+    bool singleTestConfig = 1; //change to use other single test
     bool shortTest = true;
+    string file_prefix = "short";
     //if argument is passed should be = single/short/all
     if (argc == 1 ) {
         if(argv[0] == "single"){
@@ -614,14 +615,24 @@ int main(int argc, const char *argv[])
             shortTest = false;
         }
     }
-
-    string file_prefix = "short";
-    if(singleTest)
+    // load configuration
+    vector<Config3DObjectTrack> configList;  //shortTest=true/false . run all combination of all or shorter list
+    if(singleTest){
+        configList = getConfigListSingle(singleTestConfig);
         file_prefix = "one";
+    }
+    else if(shortTest)
+    {
+        configList = getConfigListShort();
+        file_prefix = "short";
+    }
     else
-        //shortTest=true/false . run all combination of all or shorter list
-        file_prefix = shortTest ? "all" : "short";
+    {
+        configList = getConfigListAll();
+        file_prefix = "all";
+    }
 
+    //load audit logs
     ofstream detector_file;
     detector_file.open("../"+ file_prefix + "_results.csv");
 
@@ -632,13 +643,8 @@ int main(int argc, const char *argv[])
     vector<AuditLog> audits;
     log_audit_header(detector_file);
 
-    vector<Config3DObjectTrack> configList;
-    if(singleTest)
-         configList = getConfigListSingle(singleTestConfig);
-    else
-        //shortTest=true/false . run all combination of all or shorter list
-        shortTest ? configList = getConfigListAll() : configList = getConfigListShort();
 
+    //run the test in loop
     for (auto config3d = configList.begin(); config3d != configList.end(); ++config3d) {
         try {
             //original main code is moved into this method.... so that we can run multiple test
