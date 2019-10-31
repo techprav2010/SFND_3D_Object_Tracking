@@ -225,23 +225,24 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
                      std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC, Config3DObjectTrack &config3d, AuditLog &audit)
 {
     // auxiliary variables
-    double dT = 1 / frameRate;  //double dT = 0.1;        // time between two measurements in seconds
+//    double dT = 1 / frameRate;  //double dT = 0.1;        // time between two measurements in seconds
+    double dT = 0.1;        // time between two measurements in seconds
     double laneWidth = 4.0; // assumed width of the ego lane
     double half_lane_width = laneWidth / 2.0;
     // find closest distance to Lidar points within ego lane
     double medianXPrev = 1e9, medianXCurr = 1e9;
-    float clusterTolerance=0.6;
 
-    std::vector<double> roi_prev;
+
+    std::vector<double> roi_cur;
     for (auto it = lidarPointsCurr.begin(); it != lidarPointsCurr.end(); ++it)
     {
 //        if (abs(it->y) <= half_lane_width && minXPrev > it->x )
 //            minXPrev = it->x;
         if (abs(it->y) <= half_lane_width)
-            roi_prev.push_back(it->x);
+            roi_cur.push_back(it->x);
     }
 
-    std::vector<double> roi_cur;
+    std::vector<double> roi_prev;
     for (auto it = lidarPointsPrev.begin(); it != lidarPointsPrev.end(); ++it)
     {
         if (abs(it->y) <= half_lane_width)
