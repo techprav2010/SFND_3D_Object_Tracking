@@ -8,8 +8,6 @@
 #include <unordered_map>
 #include <iterator>
 
-#include <pcl/kdtree/kdtree.h>
-#include <pcl/segmentation/extract_clusters.h>
 
 #include "camFusion.hpp"
 #include "dataStructures.h"
