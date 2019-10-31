@@ -248,7 +248,8 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
         if (abs(it->y) <= half_lane_width)
             roi_prev.push_back(it->x);
     }
-
+    cout << "computeTTCLidar roi_prev =" << roi_prev.size()  ;
+    cout << " roi_cur =" << roi_cur.size() << endl;
     if (roi_prev.size() == 0 || roi_cur.size() )
     {
         TTC = NAN;

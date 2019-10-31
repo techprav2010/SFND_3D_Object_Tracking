@@ -462,12 +462,14 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                             prevBB = &(*it2);
                         }
                     }
-                    cout << "currBB =" << currBB->lidarPoints.size()  ;
-                    cout << "prevBB =" << prevBB->lidarPoints.size() << endl;
+//                    cout << " currBB =" << currBB->lidarPoints.size()  ;
+//                    cout << " prevBB =" << prevBB->lidarPoints.size() << endl;
 
                     // compute TTC for current match
                     if( currBB->lidarPoints.size()>0 && prevBB->lidarPoints.size()>0 ) // only compute TTC if we have Lidar points
                     {
+                        cout << " currBB =" << currBB->lidarPoints.size()  ;
+                        cout << " prevBB =" << prevBB->lidarPoints.size() << endl;
                         //// STUDENT ASSIGNMENT
                         //// TASK FP.2 -> compute time-to-collision based on Lidar data (implement -> computeTTCLidar)
                         double ttcLidar;
