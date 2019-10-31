@@ -23,9 +23,45 @@
 using namespace std;
 
 
-
 /////////////////////// audit log with multiple configurations /////////
-vector<Config3DObjectTrack> getConfigListForTest(bool singleTest) {
+vector<Config3DObjectTrack> getConfigListSingle(int use_test=1) {
+    //int use_test = 1;
+    vector<Config3DObjectTrack> configList;
+    Config3DObjectTrack config;
+    if (use_test == 1)
+    {
+        config.detectorType = "FAST";
+        config.descriptorType = "BRIEF";
+        config.matcherType = "MAT_FLANN";
+        config.matcherTypeMetric = "DES_BINARY";
+        config.matcherTypeSelector = "SEL_KNN";
+    }
+    else  if (use_test == 2)
+    {
+        config.detectorType = "ORB";
+        config.descriptorType = "BRIEF";
+        config.matcherType = "MAT_FLANN";
+        config.matcherTypeMetric = "DES_BINARY";
+        config.matcherTypeSelector = "SEL_NN";
+    }
+    else
+    {
+        config.detectorType = "ORB";
+        config.descriptorType = "FREAK";
+        config.matcherType = "MAT_BF";
+        config.matcherTypeMetric = "DES_BINARY";
+        config.matcherTypeSelector = "SEL_NN";
+    }
+    config.bVis = true;
+    config.bLimitKpts = true;
+    config.maxKeypoints = 50;
+    config.bVisshow3DObjects = true;
+    configList.push_back(config);
+
+    configList.push_back(config);
+    return configList;
+}
+vector<Config3DObjectTrack> getConfigListAll() {
 
     vector<Config3DObjectTrack> configList;
     //vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
@@ -35,48 +71,65 @@ vector<Config3DObjectTrack> getConfigListForTest(bool singleTest) {
     vector<string> matcherTypes = {"MAT_BF", "MAT_FLANN"};
     vector<string> matcherTypeMetrics = {"DES_BINARY", "DES_HOG"};
     vector<string> matcherTypeSelectors = {"SEL_NN", "SEL_KNN"};
+    for (auto detectorType:detectorTypes) {
+        bool write_detector = false;
 
-    if (singleTest) {
-        Config3DObjectTrack config;
-        config.detectorType = detectorTypes[0];
-        config.descriptorType = descriptorTypes[0];
-        config.matcherType = matcherTypes[0];
-        config.matcherTypeMetric = matcherTypeMetrics[0];
-        config.matcherTypeSelector = matcherTypeSelectors[0];
-
-        config.bVis = true;
-        config.bLimitKpts = true;
-        config.maxKeypoints = 50;
-        config.bVisshow3DObjects = true;
-
-        configList.push_back(config);
-    } else {
-        for (auto detectorType:detectorTypes) {
-            bool write_detector = false;
-
-            for (auto descriptorType:descriptorTypes) // start
-            {
+        for (auto descriptorType:descriptorTypes) // start
+        {
 //                if (descriptorType.compare("AKAZE") == 0)
 //                    continue;
 
-                for (auto matcherType:matcherTypes) {
-                    for (auto matcherTypeMetric:matcherTypeMetrics) {
-                        for (auto matcherTypeSelector:matcherTypeSelectors) {
-                            Config3DObjectTrack config;
-                            config.detectorType = detectorType;
-                            config.descriptorType = descriptorType;
-                            config.matcherType = matcherType;
-                            config.matcherTypeMetric = matcherTypeMetric;
-                            config.matcherTypeSelector = matcherTypeSelector;
+            for (auto matcherType:matcherTypes) {
+                for (auto matcherTypeMetric:matcherTypeMetrics) {
+                    for (auto matcherTypeSelector:matcherTypeSelectors) {
+                        Config3DObjectTrack config;
+                        config.detectorType = detectorType;
+                        config.descriptorType = descriptorType;
+                        config.matcherType = matcherType;
+                        config.matcherTypeMetric = matcherTypeMetric;
+                        config.matcherTypeSelector = matcherTypeSelector;
 
-                            configList.push_back(config);
-                        }
+                        configList.push_back(config);
                     }
                 }
             }
         }
-
     }
+
+
+    return configList;
+}
+vector<Config3DObjectTrack> getConfigListShort() {
+    vector<Config3DObjectTrack> configList;
+    vector<string> detectorTypes = { "FAST", "BRISK", "ORB", "AKAZE","SHITOMASI", "HARRIS", "SIFT"};
+    vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK"};
+
+    vector<string> matcherTypes = { "MAT_FLANN"};
+    vector<string> matcherTypeMetrics = {"DES_BINARY"};
+    vector<string> matcherTypeSelectors = {"SEL_KNN"};
+    for (auto detectorType:detectorTypes) {
+        bool write_detector = false;
+
+        for (auto descriptorType:descriptorTypes) // start
+        {
+            for (auto matcherType:matcherTypes) {
+                for (auto matcherTypeMetric:matcherTypeMetrics) {
+                    for (auto matcherTypeSelector:matcherTypeSelectors) {
+                        Config3DObjectTrack config;
+                        config.detectorType = detectorType;
+                        config.descriptorType = descriptorType;
+                        config.matcherType = matcherType;
+                        config.matcherTypeMetric = matcherTypeMetric;
+                        config.matcherTypeSelector = matcherTypeSelector;
+
+                        configList.push_back(config);
+                    }
+                }
+            }
+        }
+    }
+
+
     return configList;
 }
 
@@ -449,7 +502,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                     {
                         if (it1->second == it2->boxID) // check wether current match partner corresponds to this BB
                         {
-                           // cout << "currBB FOUND it1->second =" << it1->second << " cur it2->boxID =" <<  it2->boxID ;
+                            // cout << "currBB FOUND it1->second =" << it1->second << " cur it2->boxID =" <<  it2->boxID ;
                             currBB = &(*it2);
                         }
                     }
@@ -543,52 +596,48 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 /* MAIN PROGRAM */
 int main(int argc, const char *argv[])
 {
+    // use singleTest &  singleTestConfig for one experiment
+    bool singleTest = false;
+    bool singleTestConfig=1;
+    bool shortTest = true;
+    //if argument is passed should be = single/short/all
+    if (argc == 1 ) {
+        if(argv[0] == "single"){
+            singleTest = true;
+        }
+        if(argv[0] == "short"){
+            singleTest = false;
+            shortTest = true;
+        }
+        if(argv[0] == "all"){
+            singleTest = false;
+            shortTest = false;
+        }
+    }
+
+    string file_prefix = "short";
+    if(singleTest)
+        file_prefix = "one";
+    else
+        //shortTest=true/false . run all combination of all or shorter list
+        file_prefix = shortTest ? "all" : "short";
+
     ofstream detector_file;
-    detector_file.open("../results.csv");
+    detector_file.open("../"+ file_prefix + "_results.csv");
 
     ofstream detector_file_json;
-    detector_file_json.open("../results.json");
+    detector_file_json.open("../"+ file_prefix + "_results.json");
     detector_file_json << "[" << endl;
 
     vector<AuditLog> audits;
     log_audit_header(detector_file);
 
-    // for testing one set of algorithms use singleTest = true
-    //when singleTest = false will test all combinations
-    bool singleTest = false;
-    //int run_2D_tracking(Config3DObjectTrack &config, vector<AuditLog> &audits)
     vector<Config3DObjectTrack> configList;
-    if(singleTest) {
-
-        //default single experiment ...
-        //configList = getConfigListForTest(true);
-        //or manually config below
-
-//        vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
-//        vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
-//        vector<string> matcherTypes = {"MAT_BF", "MAT_FLANN"};
-//        vector<string> matcherTypeMetrics = {"DES_BINARY", "DES_HOG"};
-//        vector<string> matcherTypeSelectors = {"SEL_NN", "SEL_KNN"};
-
-        Config3DObjectTrack config;
-        config.detectorType = "SHITOMASI";
-        config.descriptorType ="BRISK";
-        config.matcherType = "MAT_BF";
-        config.matcherTypeMetric ="DES_BINARY";
-        config.matcherTypeSelector = "SEL_NN";
-
-        config.bVis = true;
-        config.bLimitKpts = true;
-        config.maxKeypoints = 50;
-        config.bVisshow3DObjects = true;
-        configList.push_back(config);
-    }
+    if(singleTest)
+         configList = getConfigListSingle(singleTestConfig);
     else
-    {
-        configList = getConfigListForTest(false);
-    }
-
-
+        //shortTest=true/false . run all combination of all or shorter list
+        shortTest ? configList = getConfigListAll() : configList = getConfigListShort();
 
     for (auto config3d = configList.begin(); config3d != configList.end(); ++config3d) {
         try {
