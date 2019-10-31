@@ -5,6 +5,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <set>
+#include <unordered_map>
+#include <iterator>
 
 #include "camFusion.hpp"
 #include "dataStructures.h"
@@ -255,7 +257,7 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
 
     int threshold = 100;
     int max=0;
-    std::map<std::pair<int, int>, int> matchedPairMultimap;
+    std::unordered_map<std::pair<int, int>, int>   matchedPairMultimap;
     for (auto curIt = currFrame.boundingBoxes.begin(); curIt != currFrame.boundingBoxes.end(); ++curIt)
     {
         for (auto prevIt = prevFrame.boundingBoxes.begin(); prevIt != prevFrame.boundingBoxes.end(); ++prevIt )
@@ -269,10 +271,19 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
                 {
                     //matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
                     //cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
-//                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
-                      auto pair_boxids = std::make_pair(prevIt->boxID, curIt->boxID);
-                      //auto it_exists = matchedPairMultimap.find(pair_boxids);
-                      ++matchedPairMultimap[pair_boxids];
+                    //                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
+
+                    auto pair_boxids = std::make_pair(prevIt->boxID, curIt->boxID);
+                    std::unordered_map<std::pair<int, int>, int> ::iterator itExists = matchedPairMultimap.find(pair_boxids);
+                    if (itExists != matchedPairMultimap.end())
+                    {
+                        itExists->second++;
+                    }
+                    else
+                    {
+                        matchedPairMultimap.insert(std::make_pair(pair_boxids, 1));
+                    }
+
                 }
             }
         }
