@@ -255,7 +255,7 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
 
     int threshold = 100;
     int max=0;
-    std::multimap<int, int> matchedPairMultimap;
+    std::map<std::pair<int, int>, int> matchedPairMultimap;
     for (auto curIt = currFrame.boundingBoxes.begin(); curIt != currFrame.boundingBoxes.end(); ++curIt)
     {
         for (auto prevIt = prevFrame.boundingBoxes.begin(); prevIt != prevFrame.boundingBoxes.end(); ++prevIt )
@@ -265,10 +265,14 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
                 bool matrchInCurrFrame = (curIt->roi.contains(currFrame.keypoints[matchIt->trainIdx].pt));
                 bool matrchInPrevFrame =  (prevIt->roi.contains(prevFrame.keypoints[matchIt->queryIdx].pt)) ;
                 //bool matrchInPrevFrame = matrchInCurrFrame ? (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) : false;
-                if(matrchInCurrFrame && matrchInPrevFrame){
+                if(matrchInCurrFrame && matrchInPrevFrame)
+                {
                     //matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
                     //cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
-                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
+//                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
+                      auto pair_boxids = std::make_pair(prevIt->boxID, curIt->boxID);
+                      //auto it_exists = matchedPairMultimap.find(pair_boxids);
+                      ++matchedPairMultimap[pair_boxids];
                 }
             }
         }
@@ -298,4 +302,51 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
     }
 }
 
-
+//
+//void matchBoundingBoxes2 (std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame, Config3DObjectTrack &config3d, AuditLog &audit)
+//{
+//
+//    int threshold = 100;
+//    int max=0;
+//    std::multimap<int, int> matchedPairMultimap;
+//    for (auto curIt = currFrame.boundingBoxes.begin(); curIt != currFrame.boundingBoxes.end(); ++curIt)
+//    {
+//        for (auto prevIt = prevFrame.boundingBoxes.begin(); prevIt != prevFrame.boundingBoxes.end(); ++prevIt )
+//        {
+//            for (auto matchIt = matches.begin(); matchIt != matches.end(); ++matchIt)
+//            {
+//                bool matrchInCurrFrame = (curIt->roi.contains(currFrame.keypoints[matchIt->trainIdx].pt));
+//                bool matrchInPrevFrame =  (prevIt->roi.contains(prevFrame.keypoints[matchIt->queryIdx].pt)) ;
+//                //bool matrchInPrevFrame = matrchInCurrFrame ? (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) : false;
+//                if(matrchInCurrFrame && matrchInPrevFrame){
+//                    //matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
+//                    //cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
+//                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
+//                }
+//            }
+//        }
+//    }
+//
+//
+////    std::set<std::pair<int, int>> threshold_set;
+//
+//    std::map<int,int> threshold_map;
+//    if ( matchedPairMultimap.size() > 0)
+//    {
+//        for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); ++matchedPair )
+//        {
+//            //cout << "matchedPairMultimap.count(matchedPair->first) " << matchedPairMultimap.count(matchedPair->first) << " " << trainIdx << endl;
+//            if (  matchedPairMultimap.count(matchedPair->first) >  threshold)
+//            {
+////                threshold_map.insert(std::pair<int,int>(matchedPair->first,matchedPair->second));
+//                bbBestMatches.insert(std::pair<int, int>(matchedPair->first,matchedPair->second));
+////                cout << "matchedPairMultimap.count(matchedPair->first) "
+////                     << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first)
+////                     << " matchedPair->first=" << matchedPair->first
+////                     << " matchedPair->second=" << matchedPair->second
+////                     << endl;
+//            }
+//        }
+////        cout << "bbBestMatches count " << bbBestMatches.size() << endl;
+//    }
+//}
