@@ -281,7 +281,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
             dataBuffer.push_back(frame);
             if (dataBuffer.size() > dataBufferSize) {
                 //circular buffer - dataBufferSize=2
-                dataBuffer.erase(dataBuffer.begin());
+                //dataBuffer.erase(dataBuffer.begin());
             }
             cout << "#1 : LOAD IMAGE INTO BUFFER done" << endl;
 
@@ -441,14 +441,14 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                 // loop over all BB match pairs
                 for (auto it1 = (dataBuffer.end() - 1)->bbMatches.begin(); it1 != (dataBuffer.end() - 1)->bbMatches.end(); ++it1)
                 {
-                    cout << "it1->first =" << it1->first << " it1->second =" << it1->second << endl;
+                    //cout << "it1->first =" << it1->first << " it1->second =" << it1->second << endl;
                     // find bounding boxes associates with current match
                     BoundingBox *prevBB, *currBB;
                     for (auto it2 = (dataBuffer.end() - 1)->boundingBoxes.begin(); it2 != (dataBuffer.end() - 1)->boundingBoxes.end(); ++it2)
                     {
                         if (it1->second == it2->boxID) // check wether current match partner corresponds to this BB
                         {
-                            cout << "currBB FOUND it1->second =" << it1->second << " it2->boxID =" <<  it2->boxID<< endl;
+                            cout << "currBB FOUND it1->second =" << it1->second << " cur it2->boxID =" <<  it2->boxID ;
                             currBB = &(*it2);
                         }
                     }
@@ -457,7 +457,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                     {
                         if (it1->first == it2->boxID) // check wether current match partner corresponds to this BB
                         {
-                            cout << "prevBB FOUND it1->first =" << it1->first << " it2->boxID =" <<  it2->boxID<< endl;
+                            cout << "prevBB FOUND it1->first =" << it1->first << " prev it2->boxID =" <<  it2->boxID ;
                             prevBB = &(*it2);
                         }
                     }
