@@ -28,7 +28,8 @@ using namespace std;
 vector<Config3DObjectTrack> getConfigListForTest(bool singleTest) {
 
     vector<Config3DObjectTrack> configList;
-    vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
+    //vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
+    vector<string> detectorTypes = { "FAST", "BRISK", "ORB", "AKAZE","SHITOMASI", "HARRIS", "SIFT"};
     vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
 
     vector<string> matcherTypes = {"MAT_BF", "MAT_FLANN"};
@@ -243,7 +244,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
     // misc
     double sensorFrameRate = 10.0 / imgStepWidth; // frames per second for Lidar and camera
-    int dataBufferSize = 2;       // no. of images which are held in memory (ring buffer) at the same time
+    int dataBufferSize =  2;       // no. of images which are held in memory (ring buffer) at the same time
     vector<DataFrame> dataBuffer; // list of data frames which are held in memory at the same time
     bool bVis = false;            // visualize results
 
@@ -281,7 +282,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
             dataBuffer.push_back(frame);
             if (dataBuffer.size() > dataBufferSize) {
                 //circular buffer - dataBufferSize=2
-                //dataBuffer.erase(dataBuffer.begin());
+                dataBuffer.erase(dataBuffer.begin());
             }
             cout << "#1 : LOAD IMAGE INTO BUFFER done" << endl;
 
@@ -483,7 +484,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                         cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;
 
-                        bVis = true;//config3d.bVis ;//true;
+                        bVis = config3d.bVis ;//true;
                         if (bVis)
                         {
                             cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();

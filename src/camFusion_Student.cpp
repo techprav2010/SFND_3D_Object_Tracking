@@ -59,7 +59,7 @@ void clusterLidarWithROI(std::vector<BoundingBox> &boundingBoxes, std::vector<Li
             // add Lidar point to bounding box
             enclosingBoxes[0]->lidarPoints.push_back(*it1);
         }
-        cout << "enclosingBoxes ??? = " << enclosingBoxes.size() << endl;
+       // cout << "enclosingBoxes ??? = " << enclosingBoxes.size() << endl;
 
     } // eof loop over all Lidar points
 }
@@ -255,7 +255,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 //matchBoundingBoxes
 void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame, Config3DObjectTrack &config3d, AuditLog &audit)
 {
-    int threshold = 100;
+    int threshold = 25;//100;
     int max=0;
     std::map<vector<int>, int>   matchedPairMultimap;
     for (auto curIt = currFrame.boundingBoxes.begin(); curIt != currFrame.boundingBoxes.end(); ++curIt)
