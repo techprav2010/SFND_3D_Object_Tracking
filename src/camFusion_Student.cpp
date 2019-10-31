@@ -253,19 +253,19 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
     int threshold = 100;
     int max=0;
     std::multimap<int, int> matchedPairMultimap;
-    for (auto it1 = currFrame.boundingBoxes.begin(); it1 != currFrame.boundingBoxes.end(); ++it1)
+    for (auto curIt = currFrame.boundingBoxes.begin(); curIt != currFrame.boundingBoxes.end(); ++curIt)
     {
-        for (auto it2 = prevFrame.boundingBoxes.begin(); it2 != prevFrame.boundingBoxes.end(); ++it2 )
+        for (auto prevIt = prevFrame.boundingBoxes.begin(); prevIt != prevFrame.boundingBoxes.end(); ++prevIt )
         {
-            for (auto it3 = matches.begin(); it3 != matches.end(); ++it3)
+            for (auto matchIt = matches.begin(); matchIt != matches.end(); ++matchIt)
             {
-                bool matrchInCurrFrame = (it1->roi.contains(currFrame.keypoints[it3->trainIdx].pt));
-                bool matrchInPrevFrame =  (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) ;
+                bool matrchInCurrFrame = (curIt->roi.contains(currFrame.keypoints[matchIt->trainIdx].pt));
+                bool matrchInPrevFrame =  (prevIt->roi.contains(prevFrame.keypoints[matchIt->queryIdx].pt)) ;
                 //bool matrchInPrevFrame = matrchInCurrFrame ? (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) : false;
                 if(matrchInCurrFrame && matrchInPrevFrame){
                     //matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
                     //cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
-                    matchedPairMultimap.insert(std::pair<int, int>(it2->boxID, it1->boxID));
+                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
                 }
             }
         }
@@ -284,19 +284,14 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
             {
 //                threshold_map.insert(std::pair<int,int>(matchedPair->first,matchedPair->second));
                 bbBestMatches.insert(std::pair<int, int>(matchedPair->first,matchedPair->second));
-                cout << "matchedPairMultimap.count(matchedPair->first) "
-                     << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first)
-                     << " matchedPair->first=" << matchedPair->first
-                     << " matchedPair->second=" << matchedPair->second
-                     << endl;
+//                cout << "matchedPairMultimap.count(matchedPair->first) "
+//                     << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first)
+//                     << " matchedPair->first=" << matchedPair->first
+//                     << " matchedPair->second=" << matchedPair->second
+//                     << endl;
             }
         }
-//        if(trainIdx > -1)
-//        {
-//            bbBestMatches.insert(std::pair<int, int>(b1, b2));
-//            max = max + 1;
-//        }
-
+        cout << "bbBestMatches count " << bbBestMatches.size() << endl;
     }
 }
 
