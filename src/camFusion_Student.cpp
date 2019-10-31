@@ -212,6 +212,7 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     TTC = -dT / (1 - medDistRatio);
     //audit
     audit.ttc_camera.push_back(TTC);
+    cout << "audit.ttc_camera TTC count " << TTC << audit.ttc_camera.size() << endl;
     // EOF STUDENT TASK
 }
 
@@ -243,6 +244,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 
     //audit
     audit.ttc_lidar.push_back(TTC);
+    cout << "audit.ttc_lidar TTC count " << TTC << audit.ttc_lidar.size() << endl;
     //todo: should use the median or mean ?
 }
 
@@ -250,6 +252,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 //matchBoundingBoxes
 void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame, Config3DObjectTrack &config3d, AuditLog &audit)
 {
+
     int threshold = 100;
     int max=0;
     std::multimap<int, int> matchedPairMultimap;
@@ -291,7 +294,7 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
 //                     << endl;
             }
         }
-        cout << "bbBestMatches count " << bbBestMatches.size() << endl;
+//        cout << "bbBestMatches count " << bbBestMatches.size() << endl;
     }
 }
 
