@@ -16,36 +16,7 @@
 
 using namespace std;
 
-//useing kdtree to cluster fromprvious lessons
-pcl::PointCloud<pcl::PointXYZ>::Ptr euclideanCluster(const std::vector<LidarPoint> &lidarPoints, float clusterTolerance=0.5)
-{
 
-    std::vector<pcl::PointIndices> cluster_indices;
-
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
-    for (const auto &p : lidarPoints)
-    {
-        cloud->push_back(pcl::PointXYZ((float)p.x, (float)p.y, (float)p.z));
-    }
-
-    pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>);
-    tree->setInputCloud(cloud);
-
-    pcl::EuclideanClusterExtraction<pcl::PointXYZ> ec;
-    ec.setClusterTolerance(clusterTolerance);
-    ec.setSearchMethod(tree);
-    ec.setMinClusterSize(50);
-    ec.setInputCloud(cloud);
-    ec.extract(cluster_indices);
-
-    pcl::PointCloud<pcl::PointXYZ>::Ptr result(new pcl::PointCloud<pcl::PointXYZ>);
-    if (!cluster_indices.empty()){
-        for (const auto &cluster : cluster_indices)
-            for (size_t i : cluster.indices)
-                result->points.push_back(cloud->points.at(i));
-    }
-    return result;
-}
 // Create groups of Lidar points whose projection into the camera falls into the same bounding box
 void clusterLidarWithROI(std::vector<BoundingBox> &boundingBoxes, std::vector<LidarPoint> &lidarPoints, float shrinkFactor, cv::Mat &P_rect_xx, cv::Mat &R_rect_xx, cv::Mat &RT, Config3DObjectTrack &config3d, AuditLog &audit)
 {
@@ -260,25 +231,37 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     double laneWidth = 4.0; // assumed width of the ego lane
     double half_lane_width = laneWidth / 2.0;
     // find closest distance to Lidar points within ego lane
-    double minXPrev = 1e9, minXCurr = 1e9;
+    double medianXPrev = 1e9, medianXCurr = 1e9;
     float clusterTolerance=0.6;
 
-    auto lidarPointsPrevFiltered = euclideanCluster(lidarPointsPrev, clusterTolerance);
-    for (auto it = lidarPointsPrevFiltered.begin(); it != lidarPointsPrevFiltered.end(); ++it)
+    std::vector<double> roi_prev;
+    for (auto it = lidarPointsCurr.begin(); it != lidarPointsCurr.end(); ++it)
     {
-        if (abs(it->y) <= half_lane_width && minXPrev > it->x )
-            minXPrev = it->x;
+//        if (abs(it->y) <= half_lane_width && minXPrev > it->x )
+//            minXPrev = it->x;
+        if (abs(it->y) <= half_lane_width)
+            roi_prev.push_back(it->x);
     }
 
-    auto lidarPointsCurrFiltered  = euclideanCluster(lidarPointsCurr, clusterTolerance);
-    for (auto it = lidarPointsCurrFiltered.begin(); it != lidarPointsCurrFiltered.end(); ++it)
+    std::vector<double> roi_cur;
+    for (auto it = lidarPointsPrev.begin(); it != lidarPointsPrev.end(); ++it)
     {
-        if (abs(it->y) <= half_lane_width && minXCurr > it->x )
-            minXCurr = it->x;
+        if (abs(it->y) <= half_lane_width)
+            roi_prev.push_back(it->x);
     }
+
+    std::sort(roi_prev.begin(), roi_prev.end());
+    std::sort(roi_cur.begin(), roi_cur.end());
+
+    long medIndex = floor(roi_prev.size() / 2.0);
+    medianXPrev = roi_prev.size() % 2 == 0 ? (roi_prev[medIndex - 1] + roi_prev[medIndex]) / 2.0 : roi_prev[medIndex];
+
+    medIndex = floor(roi_cur.size() / 2.0);
+    medianXCurr = roi_cur.size() % 2 == 0 ? (roi_cur[medIndex - 1] + roi_cur[medIndex]) / 2.0 : roi_cur[medIndex];
+
 
     // compute TTC from both measurements
-    TTC = minXCurr * dT / (minXPrev - minXCurr);
+    TTC = medianXPrev * dT * 1.0 / (medianXPrev - medianXCurr);
 
     //audit
     audit.ttc_lidar.push_back(TTC);
