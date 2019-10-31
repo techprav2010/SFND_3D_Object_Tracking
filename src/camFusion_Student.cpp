@@ -261,6 +261,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     double half_lane_width = laneWidth / 2.0;
     // find closest distance to Lidar points within ego lane
     double minXPrev = 1e9, minXCurr = 1e9;
+    float clusterTolerance=0.6;
 
     auto lidarPointsPrevFiltered = euclideanCluster(lidarPointsPrev, clusterTolerance);
     for (auto it = lidarPointsPrevFiltered.begin(); it != lidarPointsPrevFiltered.end(); ++it)
