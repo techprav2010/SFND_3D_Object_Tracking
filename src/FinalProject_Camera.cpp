@@ -107,10 +107,10 @@ vector<Config3DObjectTrack> getConfigListShort() {
     vector<string> matcherTypes = { "MAT_FLANN"};
     vector<string> matcherTypeMetrics = {"DES_BINARY"};
     vector<string> matcherTypeSelectors = {"SEL_KNN"};
-    for (auto detectorType:detectorTypes) {
+    for (auto  descriptorType:descriptorTypes) {
         bool write_detector = false;
 
-        for (auto descriptorType:descriptorTypes) // start
+        for (auto detectorType:detectorTypes) // start
         {
             for (auto matcherType:matcherTypes) {
                 for (auto matcherTypeMetric:matcherTypeMetrics) {
