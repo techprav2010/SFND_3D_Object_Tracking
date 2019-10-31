@@ -272,6 +272,8 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
         int trainIdx = -1;
         int countMax = 0;
 
+        int b1 = -1;
+        int b2= -1;
         if ( matchedPairMultimap.size() > 0)
         {
             for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); matchedPair++)
@@ -282,16 +284,19 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
 
                     countMax = matchedPairMultimap.count(matchedPair->first);
                     trainIdx = matchedPair->first;                    
-                    
+                    b1=  matchedPair->first;  
+                    b2=  matchedPair->second;  
                     cout << "matchedPairMultimap.count(matchedPair->first) " 
                     << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first) 
+                    << " b1=" << b1
+                     << " b2=" << b2
                     << " " << trainIdx << endl;
 
                 }
             }
             if(trainIdx > -1)
             {
-                bbBestMatches.insert(std::pair<int, int>(it1->boxID, trainIdx));
+                bbBestMatches.insert(std::pair<int, int>(b1, b2));
                 max = max + 1;
             }
 
