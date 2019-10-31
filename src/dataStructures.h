@@ -52,6 +52,10 @@ struct Config3DObjectTrack {
     int maxKeypoints = 50;
 
     bool bVisshow3DObjects= false;
+    bool bWait3DObjects= false;
+
+    bool bVisTTC= false;
+
 };
 
 // audit experiment results

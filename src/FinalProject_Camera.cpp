@@ -56,6 +56,9 @@ vector<Config3DObjectTrack> getConfigListSingle(int use_test=1) {
     config.bLimitKpts = false;
     config.maxKeypoints = 50;
     config.bVisshow3DObjects = true;
+    config.bWait3DObjects = true;
+    config.bVisTTC = true;
+
     configList.push_back(config); 
     return configList;
 }
@@ -377,7 +380,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
             bVis = config3d.bVisshow3DObjects ;//true;
             if(bVis)
             {
-                show3DObjects((dataBuffer.end()-1)->boundingBoxes, cv::Size(4.0, 20.0), cv::Size(2000, 2000), config3d, audit, true);
+                show3DObjects((dataBuffer.end()-1)->boundingBoxes, cv::Size(4.0, 20.0), cv::Size(2000, 2000), config3d, audit, config3d.bWait3DObjects);
             }
             bVis = false;
 
@@ -537,7 +540,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                         cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;
 
-                        bVis = config3d.bVisshow3DObjects ;//true;
+                        bVis = config3d.bVisTTC ;//true;
                         if (bVis)
                         {
                             cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();
