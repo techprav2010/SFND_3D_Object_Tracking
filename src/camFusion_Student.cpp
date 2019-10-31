@@ -8,12 +8,44 @@
 #include <unordered_map>
 #include <iterator>
 
+#include <pcl/kdtree/kdtree.h>
+#include <pcl/segmentation/extract_clusters.h>
+
 #include "camFusion.hpp"
 #include "dataStructures.h"
 
 using namespace std;
 
+//useing kdtree to cluster fromprvious lessons
+pcl::PointCloud<pcl::PointXYZ>::Ptr euclideanCluster(const std::vector<LidarPoint> &lidarPoints, float clusterTolerance)
+{
 
+    std::vector<pcl::PointIndices> cluster_indices;
+
+    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
+    for (const auto &p : lidarPoints)
+    {
+        cloud->push_back(pcl::PointXYZ((float)p.x, (float)p.y, (float)p.z));
+    }
+
+    pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>);
+    tree->setInputCloud(cloud);
+
+    pcl::EuclideanClusterExtraction<pcl::PointXYZ> ec;
+    ec.setClusterTolerance(clusterTolerance);
+    ec.setSearchMethod(tree);
+    ec.setMinClusterSize(50);
+    ec.setInputCloud(cloud);
+    ec.extract(cluster_indices);
+
+    pcl::PointCloud<pcl::PointXYZ>::Ptr result(new pcl::PointCloud<pcl::PointXYZ>);
+    if (!cluster_indices.empty()){
+        for (const auto &cluster : cluster_indices)
+            for (size_t i : cluster.indices)
+                result->points.push_back(cloud->points.at(i));
+    }
+    return result;
+}
 // Create groups of Lidar points whose projection into the camera falls into the same bounding box
 void clusterLidarWithROI(std::vector<BoundingBox> &boundingBoxes, std::vector<LidarPoint> &lidarPoints, float shrinkFactor, cv::Mat &P_rect_xx, cv::Mat &R_rect_xx, cv::Mat &RT, Config3DObjectTrack &config3d, AuditLog &audit)
 {
@@ -224,19 +256,21 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
                      std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC, Config3DObjectTrack &config3d, AuditLog &audit)
 {
     // auxiliary variables
-    double dT = 0.1;        // time between two measurements in seconds
+    double dT = 1 / frameRate;  //double dT = 0.1;        // time between two measurements in seconds
     double laneWidth = 4.0; // assumed width of the ego lane
     double half_lane_width = laneWidth / 2.0;
     // find closest distance to Lidar points within ego lane
     double minXPrev = 1e9, minXCurr = 1e9;
 
-    for (auto it = lidarPointsPrev.begin(); it != lidarPointsPrev.end(); ++it)
+    auto lidarPointsPrevFiltered = euclideanCluster(lidarPointsPrev, clusterTolerance);
+    for (auto it = lidarPointsPrevFiltered.begin(); it != lidarPointsPrevFiltered.end(); ++it)
     {
         if (abs(it->y) <= half_lane_width && minXPrev > it->x )
             minXPrev = it->x;
     }
 
-    for (auto it = lidarPointsCurr.begin(); it != lidarPointsCurr.end(); ++it)
+    auto lidarPointsCurrFiltered  = euclideanCluster(lidarPointsCurr, clusterTolerance);
+    for (auto it = lidarPointsCurrFiltered.begin(); it != lidarPointsCurrFiltered.end(); ++it)
     {
         if (abs(it->y) <= half_lane_width && minXCurr > it->x )
             minXCurr = it->x;
