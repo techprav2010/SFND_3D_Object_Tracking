@@ -449,7 +449,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                     {
                         if (it1->second == it2->boxID) // check wether current match partner corresponds to this BB
                         {
-                            cout << "currBB FOUND it1->second =" << it1->second << " cur it2->boxID =" <<  it2->boxID ;
+                           // cout << "currBB FOUND it1->second =" << it1->second << " cur it2->boxID =" <<  it2->boxID ;
                             currBB = &(*it2);
                         }
                     }
@@ -458,12 +458,12 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                     {
                         if (it1->first == it2->boxID) // check wether current match partner corresponds to this BB
                         {
-                            cout << "prevBB FOUND it1->first =" << it1->first << " prev it2->boxID =" <<  it2->boxID ;
+                            //cout << "prevBB FOUND it1->first =" << it1->first << " prev it2->boxID =" <<  it2->boxID ;
                             prevBB = &(*it2);
                         }
                     }
-                    cout << "currBB->lidarPoints.size() =" << currBB->lidarPoints.size() << endl;
-                    cout << "prevBB->lidarPoints.size() =" << prevBB->lidarPoints.size() << endl;
+                    cout << "currBB =" << currBB->lidarPoints.size()  ;
+                    cout << "prevBB =" << prevBB->lidarPoints.size() << endl;
 
                     // compute TTC for current match
                     if( currBB->lidarPoints.size()>0 && prevBB->lidarPoints.size()>0 ) // only compute TTC if we have Lidar points
