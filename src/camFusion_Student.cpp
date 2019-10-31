@@ -17,7 +17,7 @@
 using namespace std;
 
 //useing kdtree to cluster fromprvious lessons
-pcl::PointCloud<pcl::PointXYZ>::Ptr euclideanCluster(const std::vector<LidarPoint> &lidarPoints, float clusterTolerance)
+pcl::PointCloud<pcl::PointXYZ>::Ptr euclideanCluster(const std::vector<LidarPoint> &lidarPoints, float clusterTolerance=0.5)
 {
 
     std::vector<pcl::PointIndices> cluster_indices;
