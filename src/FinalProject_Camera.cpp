@@ -34,12 +34,12 @@ vector<Config3DObjectTrack> getConfigListSingle(int use_test=1) {
         config.descriptorType = "BRIEF";
         config.matcherType = "MAT_FLANN";
         config.matcherTypeMetric = "DES_BINARY";
-        config.matcherTypeSelector = "SEL_KNN";
+        config.matcherTypeSelector = "SEL_NN";
     }
     else  if (use_test == 2)
     {
         config.detectorType = "ORB";
-        config.descriptorType = "BRIEF";
+        config.descriptorType = "BRISK";
         config.matcherType = "MAT_FLANN";
         config.matcherTypeMetric = "DES_BINARY";
         config.matcherTypeSelector = "SEL_NN";
@@ -52,13 +52,11 @@ vector<Config3DObjectTrack> getConfigListSingle(int use_test=1) {
         config.matcherTypeMetric = "DES_BINARY";
         config.matcherTypeSelector = "SEL_NN";
     }
-    config.bVis = true;
-    config.bLimitKpts = true;
+    config.bVis = false;
+    config.bLimitKpts = false;
     config.maxKeypoints = 50;
     config.bVisshow3DObjects = true;
-    configList.push_back(config);
-
-    configList.push_back(config);
+    configList.push_back(config); 
     return configList;
 }
 vector<Config3DObjectTrack> getConfigListAll() {
@@ -597,9 +595,9 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 int main(int argc, const char *argv[])
 {
     // use singleTest &  singleTestConfig for one experiment
-    bool singleTest = false;
+    bool singleTest = true;
     bool singleTestConfig = 1; //change to use other single test
-    bool shortTest = true;
+    bool shortTest = false;
     string file_prefix = "short";
     //if argument is passed should be = single/short/all
     if (argc > 0 ) {
