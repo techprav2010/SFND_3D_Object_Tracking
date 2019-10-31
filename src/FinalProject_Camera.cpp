@@ -387,7 +387,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
             // push keypoints and descriptor for current frame to end of data buffer
             (dataBuffer.end() - 1)->keypoints = keypoints;
 
-            cout << "#5 : DETECT KEYPOINTS done" << endl;
+            cout << "#5 : DETECT KEYPOINTS done " << keypoints.size() << endl;
 
 
             /* EXTRACT KEYPOINT DESCRIPTORS */
@@ -399,7 +399,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
             // push descriptors for current frame to end of data buffer
             (dataBuffer.end() - 1)->descriptors = descriptors;
 
-            cout << "#6 : EXTRACT DESCRIPTORS done" << endl;
+            cout << "#6 : EXTRACT DESCRIPTORS done " << descriptors.size() << endl;
 
 
             if (dataBuffer.size() > 1) // wait until at least two images have been processed
@@ -419,7 +419,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                 // store matches in current data frame
                 (dataBuffer.end() - 1)->kptMatches = matches;
 
-                cout << "#7 : MATCH KEYPOINT DESCRIPTORS done" << endl;
+                cout << "#7 : MATCH KEYPOINT DESCRIPTORS done " << matches.size() << endl;
 
 
                 /* TRACK 3D OBJECT BOUNDING BOXES */
@@ -433,7 +433,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                 // store matches in current data frame
                 (dataBuffer.end()-1)->bbMatches = bbBestMatches;
 
-                cout << "#8 : TRACK 3D OBJECT BOUNDING BOXES done" << endl;
+                cout << "#8 : TRACK 3D OBJECT BOUNDING BOXES done " << bbBestMatches.size() << endl;
 
 
                 /* COMPUTE TTC ON OBJECT IN FRONT */
@@ -475,6 +475,8 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                         clusterKptMatchesWithROI(*currBB, (dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->kptMatches , config3d, audit);
                         computeTTCCamera((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, currBB->kptMatches, sensorFrameRate, ttcCamera, config3d, audit);
                         //// EOF STUDENT ASSIGNMENT
+
+                        cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;
 
                         bVis = config3d.bVis ;//true;
                         if (bVis)
