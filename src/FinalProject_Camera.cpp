@@ -537,7 +537,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                         cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;
 
-                        bVis = config3d.bVis ;//true;
+                        bVis = config3d.bVisshow3DObjects ;//true;
                         if (bVis)
                         {
                             cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();
@@ -596,7 +596,7 @@ int main(int argc, const char *argv[])
 {
     // use singleTest &  singleTestConfig for one experiment
     bool singleTest = true;
-    bool singleTestConfig = 1; //change to use other single test
+    bool singleTestConfig = 2; //change to use other single test
     bool shortTest = false;
     string file_prefix = "short";
     //if argument is passed should be = single/short/all
