@@ -249,8 +249,8 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
             roi_prev.push_back(it->x);
     }
 
-    cout << "computeTTCLidar roi_prev =" << roi_prev.size()  ;
-    cout << " roi_cur =" << roi_cur.size() << endl;
+//    cout << "computeTTCLidar roi_prev =" << roi_prev.size()  ;
+//    cout << " roi_cur =" << roi_cur.size() << endl;
     if (roi_prev.size() == 0 || roi_cur.size()==0 )
     {
         TTC = NAN;
@@ -260,13 +260,14 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     std::sort(roi_prev.begin(), roi_prev.end());
     std::sort(roi_cur.begin(), roi_cur.end());
 
-    long medIndex = floor(roi_prev.size() / 2.0);
-    medianXPrev = roi_prev.size() % 2 == 0 ? (roi_prev[medIndex - 1] + roi_prev[medIndex]) / 2.0 : roi_prev[medIndex];
+    long medIndexP = floor(roi_prev.size() / 2.0);
+    medianXPrev = roi_prev.size() % 2 == 0 ? (roi_prev[medIndexP - 1] + roi_prev[medIndexP]) / 2.0 : roi_prev[medIndexP];
 
-    medIndex = floor(roi_cur.size() / 2.0);
-    medianXCurr = roi_cur.size() % 2 == 0 ? (roi_cur[medIndex - 1] + roi_cur[medIndex]) / 2.0 : roi_cur[medIndex];
+    long medIndexC = floor(roi_cur.size() / 2.0);
+    medianXCurr = roi_cur.size() % 2 == 0 ? (roi_cur[medIndexC - 1] + roi_cur[medIndexC]) / 2.0 : roi_cur[medIndexC];
 
-
+    cout << "computeTTCLidar roi_prev =" << roi_prev.size()  << " m=" << medianXCurr << " i=" << medIndexP;
+    cout << " roi_prev =" << roi_prev.size()  << " m=" << medianXCurr << " i=" << medIndexC << endl;
     // compute TTC from both measurements
     TTC = medianXPrev * dT * 1.0 / (medianXPrev - medianXCurr);
 
