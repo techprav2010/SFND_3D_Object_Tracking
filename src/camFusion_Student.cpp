@@ -257,7 +257,8 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
 
     int threshold = 100;
     int max=0;
-    std::unordered_map<std::pair<int, int>, int>   matchedPairMultimap;
+    
+    std::map<vector<int>, int>   matchedPairMultimap;
     for (auto curIt = currFrame.boundingBoxes.begin(); curIt != currFrame.boundingBoxes.end(); ++curIt)
     {
         for (auto prevIt = prevFrame.boundingBoxes.begin(); prevIt != prevFrame.boundingBoxes.end(); ++prevIt )
@@ -273,51 +274,46 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
                     //cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
                     //                    matchedPairMultimap.insert(std::pair<int, int>(prevIt->boxID, curIt->boxID));
 
-                    auto pair_boxids = std::make_pair(prevIt->boxID, curIt->boxID);
-                    std::unordered_map<std::pair<int, int>, int> ::iterator itExists = matchedPairMultimap.find(pair_boxids);
-                    if (itExists != matchedPairMultimap.end())
-                    {
-                        itExists->second++;
-                    }
-                    else
-                    {
-                        matchedPairMultimap.insert(std::make_pair(pair_boxids, 1));
-                    }
+                    vector<int> pair_boxids {prevIt->boxID, curIt->boxID} ;//std::make_pair<int, int>(prevIt->boxID, curIt->boxID); 
+                    matchedPairMultimap[pair_boxids]++;
 
                 }
             }
         }
     }
 
-
-//    std::set<std::pair<int, int>> threshold_set;
-
-    std::map<int,int> threshold_map;
-    if ( matchedPairMultimap.size() > 0)
-    {
-        for (auto &matchedPair: matchedPairMultimap) {
-            std::cout << '{' << matchedPair.first << ", " << matchedPair.second << '}' << '\n';
+//for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); ++matchedPair )
+        for(auto &matchedPair: matchedPairMultimap)
+       {
             if (  matchedPair.second >  threshold){
-                bbBestMatches.insert(std::pair<int, int>(matchedPair.first->first,matchedPair.first->second));
+                std::cout << "{(" << matchedPair.first[0] << ","<< matchedPair.first[1]  
+                << "), " << matchedPair.second  << "}" << endl;
+                bbBestMatches.insert(std::pair<int, int>( matchedPair.first[0],  matchedPair.first[1]));
             }
         }
-//
-//        for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); ++matchedPair )
-//        {
-//            //cout << "matchedPairMultimap.count(matchedPair->first) " << matchedPairMultimap.count(matchedPair->first) << " " << trainIdx << endl;
-//            if (  matchedPairMultimap.count(matchedPair->first) >  threshold)
-//            {
-////                threshold_map.insert(std::pair<int,int>(matchedPair->first,matchedPair->second));
-//                bbBestMatches.insert(std::pair<int, int>(matchedPair->first,matchedPair->second));
-////                cout << "matchedPairMultimap.count(matchedPair->first) "
-////                     << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first)
-////                     << " matchedPair->first=" << matchedPair->first
-////                     << " matchedPair->second=" << matchedPair->second
-////                     << endl;
-//            }
-//        }
-//        cout << "bbBestMatches count " << bbBestMatches.size() << endl;
-    }
+//    std::set<std::pair<int, int>> threshold_set;
+
+//     std::map<int,int> threshold_map;
+//     if ( matchedPairMultimap.size() > 0)
+//     {
+       
+// //
+// //        for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); ++matchedPair )
+// //        {
+// //            //cout << "matchedPairMultimap.count(matchedPair->first) " << matchedPairMultimap.count(matchedPair->first) << " " << trainIdx << endl;
+// //            if (  matchedPairMultimap.count(matchedPair->first) >  threshold)
+// //            {
+// ////                threshold_map.insert(std::pair<int,int>(matchedPair->first,matchedPair->second));
+// //                bbBestMatches.insert(std::pair<int, int>(matchedPair->first,matchedPair->second));
+// ////                cout << "matchedPairMultimap.count(matchedPair->first) "
+// ////                     << matchedPair->first << " " << matchedPairMultimap.count(matchedPair->first)
+// ////                     << " matchedPair->first=" << matchedPair->first
+// ////                     << " matchedPair->second=" << matchedPair->second
+// ////                     << endl;
+// //            }
+// //        }
+// //        cout << "bbBestMatches count " << bbBestMatches.size() << endl;
+//     }
 }
 
 //
