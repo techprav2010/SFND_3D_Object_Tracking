@@ -259,17 +259,11 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
             for (auto it3 = matches.begin(); it3 != matches.end(); ++it3)
             {
                 bool matrchInCurrFrame = (it1->roi.contains(currFrame.keypoints[it3->trainIdx].pt));
-                bool matrchInPrevFrame = matrchInCurrFrame ? (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) : false;
+                bool matrchInPrevFrame =  (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) ;
+                //bool matrchInPrevFrame = matrchInCurrFrame ? (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt)) : false;
+                cout << "matrchInPrevFrame = matrchInCurrFrame " << matrchInPrevFrame << " " <<  matrchInCurrFrame << endl;
                 if(matrchInCurrFrame && matrchInPrevFrame){
-                    matchedPairMultimap.insert(std::pair<int, int>(it2->boxID, (*it3).trainIdx));
-                }
-                matchedPairMultimap.insert(std::pair<int, int>(it2->boxID, (*it3).trainIdx));
-                if (it1->roi.contains(currFrame.keypoints[it3->trainIdx].pt))
-                {
-                    if (it2->roi.contains(prevFrame.keypoints[it3->queryIdx].pt))
-                    {
-                        matchedPairMultimap.insert(std::pair<int, int>(it2->boxID, (*it3).trainIdx));
-                    }
+                    matchedPairMultimap.insert(std::pair<int, int>(it1->boxID, (*it3).trainIdx));
                 }
             }
         }
@@ -281,6 +275,7 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
         {
             for (auto matchedPair = matchedPairMultimap.begin(); matchedPair != matchedPairMultimap.end(); matchedPair++)
             {
+                cout << "matchedPairMultimap.count(matchedPair->first) " << matchedPairMultimap.count(matchedPair->first) << " " << trainIdx << endl;
                 if (matchedPairMultimap.count(matchedPair->first) > countMax)
                 {
                     countMax = matchedPairMultimap.count(matchedPair->first);
