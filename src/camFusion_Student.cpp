@@ -303,8 +303,8 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
     for(auto &matchedPair: matchedPairMultimap)
     {
         if ( matchedPair.second >  threshold){
-            std::cout << "{(" << matchedPair.first[0] << ","<< matchedPair.first[1]
-                      << "), " << matchedPair.second  << "}" << endl;
+//            std::cout << "{(" << matchedPair.first[0] << ","<< matchedPair.first[1]
+//                      << "), " << matchedPair.second  << "}" << endl;
             bbBestMatches.insert(std::pair<int, int>( matchedPair.first[0],  matchedPair.first[1]));
             max++;
         }
