@@ -483,7 +483,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                         cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;
 
-                        bVis = config3d.bVis ;//true;
+                        bVis = true;//config3d.bVis ;//true;
                         if (bVis)
                         {
                             cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();

@@ -59,6 +59,7 @@ void clusterLidarWithROI(std::vector<BoundingBox> &boundingBoxes, std::vector<Li
             // add Lidar point to bounding box
             enclosingBoxes[0]->lidarPoints.push_back(*it1);
         }
+        cout << "enclosingBoxes ??? = " << enclosingBoxes.size() << endl;
 
     } // eof loop over all Lidar points
 }
