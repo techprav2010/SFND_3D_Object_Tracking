@@ -93,6 +93,9 @@ std::string joinVec(vector<long> v)
 }
 void log(ofstream &detector_file, AuditLog &audit) {
 
+    cout << "joinVec(audit.ttc_camera)" << audit.ttc_camera.size()  << endl;
+    cout << "joinVec(audit.ttc_lidar)" << audit.ttc_lidar.size()  << endl;
+
     detector_file << "{" << endl;
 
     detector_file << "'isError':'" << audit.isError << "'," << endl;
