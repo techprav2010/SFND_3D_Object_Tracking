@@ -38000,3 +38000,2509 @@ joinVec(audit.ttc_lidar)0
 
 START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
 #1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.44136 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.257 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 386]
+# keypoints removed = 80
+SEL_KNN with n=311 matches in 2.28426 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =311
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
+audit.ttc_camera TTC count 12.38081
+ TTC Lidar 12.6156 TTC Camera 12.3808
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.96415 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 326.844 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+# keypoints removed = 96
+SEL_KNN with n=290 matches in 2.17899 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =290
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =305 prevBB =338
+computeTTCLidar roi_prev =338 m=7.947 i=169 roi_prev =338 m=7.947 i=152
+audit.ttc_lidar TTC count 12.71421
+audit.ttc_camera TTC count 8.511571
+ TTC Lidar 12.7142 TTC Camera 8.51157
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.78239 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 309.359 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 388]
+# keypoints removed = 96
+SEL_KNN with n=298 matches in 2.01139 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =298
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =321 prevBB =305
+computeTTCLidar roi_prev =305 m=7.891 i=152 roi_prev =305 m=7.891 i=160
+audit.ttc_lidar TTC count 14.1911
+audit.ttc_camera TTC count 25.67091
+ TTC Lidar 14.191 TTC Camera 25.6709
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.92221 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.742 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 398]
+# keypoints removed = 97
+SEL_KNN with n=291 matches in 2.11021 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =291
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =319 prevBB =321
+computeTTCLidar roi_prev =321 m=7.844 i=160 roi_prev =321 m=7.844 i=159
+audit.ttc_lidar TTC count 16.78941
+audit.ttc_camera TTC count 12.36961
+ TTC Lidar 16.7894 TTC Camera 12.3696
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.75621 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.878 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 402]
+# keypoints removed = 82
+SEL_KNN with n=316 matches in 1.96951 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =316
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =340 prevBB =319
+computeTTCLidar roi_prev =319 m=7.7945 i=159 roi_prev =319 m=7.7945 i=170
+audit.ttc_lidar TTC count 15.84651
+audit.ttc_camera TTC count 8.938661
+ TTC Lidar 15.8465 TTC Camera 8.93866
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.91112 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 305.786 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 410]
+# keypoints removed = 84
+SEL_KNN with n=318 matches in 2.39083 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =318
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =345 prevBB =340
+computeTTCLidar roi_prev =340 m=7.734 i=170 roi_prev =340 m=7.734 i=172
+audit.ttc_lidar TTC count 12.88351
+audit.ttc_camera TTC count 18.94581
+ TTC Lidar 12.8835 TTC Camera 18.9458
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.66495 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.182 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 413]
+# keypoints removed = 104
+SEL_KNN with n=306 matches in 2.2598 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =306
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =315 prevBB =345
+computeTTCLidar roi_prev =345 m=7.67 i=172 roi_prev =345 m=7.67 i=157
+audit.ttc_lidar TTC count 12.08441
+audit.ttc_camera TTC count 9.127281
+ TTC Lidar 12.0844 TTC Camera 9.12728
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.8458 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.682 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 406]
+# keypoints removed = 104
+SEL_KNN with n=309 matches in 2.29802 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =309
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =307 prevBB =315
+computeTTCLidar roi_prev =315 m=7.612 i=157 roi_prev =315 m=7.612 i=153
+audit.ttc_lidar TTC count 13.22411
+audit.ttc_camera TTC count 7.950091
+ TTC Lidar 13.2241 TTC Camera 7.95009
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.32683 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 303.667 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+# keypoints removed = 97
+SEL_KNN with n=309 matches in 2.34597 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =309
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =302 prevBB =307
+computeTTCLidar roi_prev =307 m=7.554 i=153 roi_prev =307 m=7.554 i=151
+audit.ttc_lidar TTC count 13.12411
+audit.ttc_camera TTC count 12.47861
+ TTC Lidar 13.1241 TTC Camera 12.4786
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.59563 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 311.356 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+# keypoints removed = 90
+SEL_KNN with n=315 matches in 2.27436 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =315
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =278 prevBB =302
+computeTTCLidar roi_prev =302 m=7.487 i=151 roi_prev =302 m=7.487 i=139
+audit.ttc_lidar TTC count 11.27461
+audit.ttc_camera TTC count 10.9981
+ TTC Lidar 11.2746 TTC Camera 10.998
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.23346 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 339.279 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 403]
+# keypoints removed = 93
+SEL_KNN with n=311 matches in 2.3527 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =311
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =300 prevBB =278
+computeTTCLidar roi_prev =278 m=7.429 i=139 roi_prev =278 m=7.429 i=150
+audit.ttc_lidar TTC count 12.90861
+audit.ttc_camera TTC count 8.354341
+ TTC Lidar 12.9086 TTC Camera 8.35434
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.12754 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.276 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+# keypoints removed = 88
+SEL_KNN with n=315 matches in 2.21283 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =315
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =300 prevBB =300
+computeTTCLidar roi_prev =300 m=7.347 i=150 roi_prev =300 m=7.347 i=150
+audit.ttc_lidar TTC count 9.059781
+ TTC Lidar 9.05978 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.21769 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 328.077 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+# keypoints removed = 88
+SEL_KNN with n=316 matches in 2.17039 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =316
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =314 prevBB =300
+computeTTCLidar roi_prev =300 m=7.274 i=150 roi_prev =300 m=7.274 i=157
+audit.ttc_lidar TTC count 10.06441
+ TTC Lidar 10.0644 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.18331 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.319 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 400]
+# keypoints removed = 94
+SEL_KNN with n=300 matches in 2.14264 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =300
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =305 prevBB =314
+computeTTCLidar roi_prev =314 m=7.199 i=157 roi_prev =314 m=7.199 i=152
+audit.ttc_lidar TTC count 9.698631
+audit.ttc_camera TTC count 30.53551
+ TTC Lidar 9.69863 TTC Camera 30.5355
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.94302 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 303.814 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+# keypoints removed = 87
+SEL_KNN with n=313 matches in 2.28084 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =313
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =286 prevBB =305
+computeTTCLidar roi_prev =305 m=7.1155 i=152 roi_prev =305 m=7.1155 i=143
+audit.ttc_lidar TTC count 8.621571
+audit.ttc_camera TTC count -inf1
+ TTC Lidar 8.62157 TTC Camera -inf
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.97976 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 304.496 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 414]
+# keypoints removed = 79
+SEL_KNN with n=326 matches in 2.33627 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =326
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =288 prevBB =286
+computeTTCLidar roi_prev =286 m=7.0415 i=143 roi_prev =286 m=7.0415 i=144
+audit.ttc_lidar TTC count 9.615521
+audit.ttc_camera TTC count 5.947021
+ TTC Lidar 9.61552 TTC Camera 5.94702
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.07032 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 328.768 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 422]
+# keypoints removed = 94
+SEL_KNN with n=320 matches in 2.63295 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =320
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =273 prevBB =288
+computeTTCLidar roi_prev =288 m=6.969 i=144 roi_prev =288 m=6.969 i=136
+audit.ttc_lidar TTC count 9.712411
+audit.ttc_camera TTC count 8.740891
+ TTC Lidar 9.71241 TTC Camera 8.74089
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_BF MAT_BF DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.01124 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 305.719 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 426]
+# keypoints removed = 82
+SEL_KNN with n=340 matches in 2.23164 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =340
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =295 prevBB =273
+computeTTCLidar roi_prev =273 m=6.887 i=136 roi_prev =273 m=6.887 i=147
+audit.ttc_lidar TTC count 8.49881
+ TTC Lidar 8.4988 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.99805 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 322.491 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 391]
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)0
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.85864 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 326.905 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 386]
+SEL_NN with n=391 matches in 5.59772 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =391
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
+audit.ttc_camera TTC count 13.23421
+ TTC Lidar 12.6156 TTC Camera 13.2342
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.71039 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 326.465 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+SEL_NN with n=386 matches in 5.4725 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =386
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =305 prevBB =338
+computeTTCLidar roi_prev =338 m=7.947 i=169 roi_prev =338 m=7.947 i=152
+audit.ttc_lidar TTC count 12.71421
+audit.ttc_camera TTC count 8.511571
+ TTC Lidar 12.7142 TTC Camera 8.51157
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.80023 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.047 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 388]
+SEL_NN with n=394 matches in 5.76296 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =394
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =321 prevBB =305
+computeTTCLidar roi_prev =305 m=7.891 i=152 roi_prev =305 m=7.891 i=160
+audit.ttc_lidar TTC count 14.1911
+audit.ttc_camera TTC count -37.4421
+ TTC Lidar 14.191 TTC Camera -37.442
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.67527 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 322.63 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 398]
+SEL_NN with n=388 matches in 5.3707 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =388
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =319 prevBB =321
+computeTTCLidar roi_prev =321 m=7.844 i=160 roi_prev =321 m=7.844 i=159
+audit.ttc_lidar TTC count 16.78941
+audit.ttc_camera TTC count 12.36961
+ TTC Lidar 16.7894 TTC Camera 12.3696
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.86576 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.799 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 402]
+SEL_NN with n=398 matches in 5.61093 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =398
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =340 prevBB =319
+computeTTCLidar roi_prev =319 m=7.7945 i=159 roi_prev =319 m=7.7945 i=170
+audit.ttc_lidar TTC count 15.84651
+audit.ttc_camera TTC count 8.938661
+ TTC Lidar 15.8465 TTC Camera 8.93866
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.55277 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.92 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 410]
+SEL_NN with n=402 matches in 6.01227 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =402
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =345 prevBB =340
+computeTTCLidar roi_prev =340 m=7.734 i=170 roi_prev =340 m=7.734 i=172
+audit.ttc_lidar TTC count 12.88351
+audit.ttc_camera TTC count 12.91371
+ TTC Lidar 12.8835 TTC Camera 12.9137
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.80736 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 313.548 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 413]
+SEL_NN with n=410 matches in 5.91499 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =410
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =315 prevBB =345
+computeTTCLidar roi_prev =345 m=7.67 i=172 roi_prev =345 m=7.67 i=157
+audit.ttc_lidar TTC count 12.08441
+audit.ttc_camera TTC count 16.73461
+ TTC Lidar 12.0844 TTC Camera 16.7346
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.06605 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 331.306 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 406]
+SEL_NN with n=413 matches in 5.83988 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =413
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =307 prevBB =315
+computeTTCLidar roi_prev =315 m=7.612 i=157 roi_prev =315 m=7.612 i=153
+audit.ttc_lidar TTC count 13.22411
+audit.ttc_camera TTC count 50.21481
+ TTC Lidar 13.2241 TTC Camera 50.2148
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.48806 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.263 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+SEL_NN with n=406 matches in 5.61137 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =406
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =302 prevBB =307
+computeTTCLidar roi_prev =307 m=7.554 i=153 roi_prev =307 m=7.554 i=151
+audit.ttc_lidar TTC count 13.12411
+audit.ttc_camera TTC count 11.65211
+ TTC Lidar 13.1241 TTC Camera 11.6521
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.14227 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.172 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+SEL_NN with n=405 matches in 5.46364 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =405
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =278 prevBB =302
+computeTTCLidar roi_prev =302 m=7.487 i=151 roi_prev =302 m=7.487 i=139
+audit.ttc_lidar TTC count 11.27461
+audit.ttc_camera TTC count 10.9981
+ TTC Lidar 11.2746 TTC Camera 10.998
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.31281 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.466 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 403]
+SEL_NN with n=404 matches in 5.52916 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =404
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =300 prevBB =278
+computeTTCLidar roi_prev =278 m=7.429 i=139 roi_prev =278 m=7.429 i=150
+audit.ttc_lidar TTC count 12.90861
+audit.ttc_camera TTC count 1.610551
+ TTC Lidar 12.9086 TTC Camera 1.61055
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.04318 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 305.839 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+SEL_NN with n=403 matches in 5.92657 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =403
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =300 prevBB =300
+computeTTCLidar roi_prev =300 m=7.347 i=150 roi_prev =300 m=7.347 i=150
+audit.ttc_lidar TTC count 9.059781
+ TTC Lidar 9.05978 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.146 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.662 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+SEL_NN with n=404 matches in 6.03825 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =404
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =314 prevBB =300
+computeTTCLidar roi_prev =300 m=7.274 i=150 roi_prev =300 m=7.274 i=157
+audit.ttc_lidar TTC count 10.06441
+audit.ttc_camera TTC count 110.4491
+ TTC Lidar 10.0644 TTC Camera 110.449
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.71505 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 305.064 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 400]
+SEL_NN with n=394 matches in 5.40072 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =394
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =305 prevBB =314
+computeTTCLidar roi_prev =314 m=7.199 i=157 roi_prev =314 m=7.199 i=152
+audit.ttc_lidar TTC count 9.698631
+audit.ttc_camera TTC count 23.11261
+ TTC Lidar 9.69863 TTC Camera 23.1126
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.85086 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 307.021 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+SEL_NN with n=400 matches in 5.96567 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =400
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =286 prevBB =305
+computeTTCLidar roi_prev =305 m=7.1155 i=152 roi_prev =305 m=7.1155 i=143
+audit.ttc_lidar TTC count 8.621571
+audit.ttc_camera TTC count 11.19021
+ TTC Lidar 8.62157 TTC Camera 11.1902
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.44805 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 308.575 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 414]
+SEL_NN with n=405 matches in 6.36008 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =405
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =288 prevBB =286
+computeTTCLidar roi_prev =286 m=7.0415 i=143 roi_prev =286 m=7.0415 i=144
+audit.ttc_lidar TTC count 9.615521
+audit.ttc_camera TTC count 6.477581
+ TTC Lidar 9.61552 TTC Camera 6.47758
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.12849 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 332.617 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 422]
+SEL_NN with n=414 matches in 6.32266 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =414
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =273 prevBB =288
+computeTTCLidar roi_prev =288 m=6.969 i=144 roi_prev =288 m=6.969 i=136
+audit.ttc_lidar TTC count 9.712411
+audit.ttc_camera TTC count -10.40371
+ TTC Lidar 9.71241 TTC Camera -10.4037
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.04246 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 309.616 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 426]
+SEL_NN with n=422 matches in 6.37398 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =422
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =295 prevBB =273
+computeTTCLidar roi_prev =273 m=6.887 i=136 roi_prev =273 m=6.887 i=147
+audit.ttc_lidar TTC count 8.49881
+ TTC Lidar 8.4988 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.88728 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.021 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 391]
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)0
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.71955 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 311.025 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 386]
+# keypoints removed = 129
+SEL_KNN with n=262 matches in 5.82328 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =262
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
+audit.ttc_camera TTC count 13.23421
+ TTC Lidar 12.6156 TTC Camera 13.2342
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.09097 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 328.598 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+# keypoints removed = 143
+SEL_KNN with n=243 matches in 6.19405 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =243
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =305 prevBB =338
+computeTTCLidar roi_prev =338 m=7.947 i=169 roi_prev =338 m=7.947 i=152
+audit.ttc_lidar TTC count 12.71421
+audit.ttc_camera TTC count 8.511571
+ TTC Lidar 12.7142 TTC Camera 8.51157
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.57813 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 328.025 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 388]
+# keypoints removed = 120
+SEL_KNN with n=274 matches in 5.88392 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =274
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =321 prevBB =305
+computeTTCLidar roi_prev =305 m=7.891 i=152 roi_prev =305 m=7.891 i=160
+audit.ttc_lidar TTC count 14.1911
+audit.ttc_camera TTC count 25.67091
+ TTC Lidar 14.191 TTC Camera 25.6709
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.76005 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.655 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 398]
+# keypoints removed = 141
+SEL_KNN with n=247 matches in 5.7701 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =247
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =319 prevBB =321
+computeTTCLidar roi_prev =321 m=7.844 i=160 roi_prev =321 m=7.844 i=159
+audit.ttc_lidar TTC count 16.78941
+audit.ttc_camera TTC count 12.36961
+ TTC Lidar 16.7894 TTC Camera 12.3696
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.8837 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.139 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 402]
+# keypoints removed = 113
+SEL_KNN with n=285 matches in 6.06545 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =285
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =340 prevBB =319
+computeTTCLidar roi_prev =319 m=7.7945 i=159 roi_prev =319 m=7.7945 i=170
+audit.ttc_lidar TTC count 15.84651
+audit.ttc_camera TTC count 8.795751
+ TTC Lidar 15.8465 TTC Camera 8.79575
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.06168 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.621 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 410]
+# keypoints removed = 121
+SEL_KNN with n=281 matches in 6.29731 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =281
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =345 prevBB =340
+computeTTCLidar roi_prev =340 m=7.734 i=170 roi_prev =340 m=7.734 i=172
+audit.ttc_lidar TTC count 12.88351
+audit.ttc_camera TTC count 19.21571
+ TTC Lidar 12.8835 TTC Camera 19.2157
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.00361 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 328.338 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 413]
+# keypoints removed = 132
+SEL_KNN with n=278 matches in 6.36277 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =278
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =315 prevBB =345
+computeTTCLidar roi_prev =345 m=7.67 i=172 roi_prev =345 m=7.67 i=157
+audit.ttc_lidar TTC count 12.08441
+audit.ttc_camera TTC count 7.768581
+ TTC Lidar 12.0844 TTC Camera 7.76858
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.32948 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.374 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 406]
+# keypoints removed = 130
+SEL_KNN with n=283 matches in 5.9141 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =283
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =307 prevBB =315
+computeTTCLidar roi_prev =315 m=7.612 i=157 roi_prev =315 m=7.612 i=153
+audit.ttc_lidar TTC count 13.22411
+audit.ttc_camera TTC count 7.950091
+ TTC Lidar 13.2241 TTC Camera 7.95009
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.43365 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 310.35 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+# keypoints removed = 128
+SEL_KNN with n=278 matches in 5.85634 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =278
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =302 prevBB =307
+computeTTCLidar roi_prev =307 m=7.554 i=153 roi_prev =307 m=7.554 i=151
+audit.ttc_lidar TTC count 13.12411
+audit.ttc_camera TTC count 12.05121
+ TTC Lidar 13.1241 TTC Camera 12.0512
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.95332 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 308.981 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+# keypoints removed = 136
+SEL_KNN with n=269 matches in 5.91409 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =269
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =278 prevBB =302
+computeTTCLidar roi_prev =302 m=7.487 i=151 roi_prev =302 m=7.487 i=139
+audit.ttc_lidar TTC count 11.27461
+audit.ttc_camera TTC count 10.9981
+ TTC Lidar 11.2746 TTC Camera 10.998
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.90307 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 328.56 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 403]
+# keypoints removed = 130
+SEL_KNN with n=274 matches in 6.44041 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =274
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =2
+ currBB =300 prevBB =278
+computeTTCLidar roi_prev =278 m=7.429 i=139 roi_prev =278 m=7.429 i=150
+audit.ttc_lidar TTC count 12.90861
+audit.ttc_camera TTC count 10.58951
+ TTC Lidar 12.9086 TTC Camera 10.5895
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.03058 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.677 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+# keypoints removed = 122
+SEL_KNN with n=281 matches in 5.84709 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =281
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =300 prevBB =300
+computeTTCLidar roi_prev =300 m=7.347 i=150 roi_prev =300 m=7.347 i=150
+audit.ttc_lidar TTC count 9.059781
+ TTC Lidar 9.05978 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.39861 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 310.07 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+# keypoints removed = 120
+SEL_KNN with n=284 matches in 5.9134 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =284
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =314 prevBB =300
+computeTTCLidar roi_prev =300 m=7.274 i=150 roi_prev =300 m=7.274 i=157
+audit.ttc_lidar TTC count 10.06441
+ TTC Lidar 10.0644 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.97674 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.914 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 400]
+# keypoints removed = 128
+SEL_KNN with n=266 matches in 5.8731 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =266
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =305 prevBB =314
+computeTTCLidar roi_prev =314 m=7.199 i=157 roi_prev =314 m=7.199 i=152
+audit.ttc_lidar TTC count 9.698631
+audit.ttc_camera TTC count -inf1
+ TTC Lidar 9.69863 TTC Camera -inf
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.39544 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.134 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+# keypoints removed = 108
+SEL_KNN with n=292 matches in 5.9314 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =292
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =286 prevBB =305
+computeTTCLidar roi_prev =305 m=7.1155 i=152 roi_prev =305 m=7.1155 i=143
+audit.ttc_lidar TTC count 8.621571
+audit.ttc_camera TTC count -inf1
+ TTC Lidar 8.62157 TTC Camera -inf
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.58654 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 318.548 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 414]
+# keypoints removed = 127
+SEL_KNN with n=278 matches in 6.00317 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =278
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =288 prevBB =286
+computeTTCLidar roi_prev =286 m=7.0415 i=143 roi_prev =286 m=7.0415 i=144
+audit.ttc_lidar TTC count 9.615521
+ TTC Lidar 9.61552 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.83466 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.13 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 422]
+# keypoints removed = 144
+SEL_KNN with n=270 matches in 6.47438 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =270
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =273 prevBB =288
+computeTTCLidar roi_prev =288 m=6.969 i=144 roi_prev =288 m=6.969 i=136
+audit.ttc_lidar TTC count 9.712411
+ TTC Lidar 9.71241 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.6481 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.597 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 426]
+# keypoints removed = 117
+SEL_KNN with n=305 matches in 6.20229 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =305
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =295 prevBB =273
+computeTTCLidar roi_prev =273 m=6.887 i=136 roi_prev =273 m=6.887 i=147
+audit.ttc_lidar TTC count 8.49881
+ TTC Lidar 8.4988 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.20106 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.636 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 391]
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)0
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.15052 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 313.822 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 386]
+SEL_NN with n=391 matches in 5.73497 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =391
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
+audit.ttc_camera TTC count 13.23421
+ TTC Lidar 12.6156 TTC Camera 13.2342
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.40941 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.216 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+SEL_NN with n=386 matches in 5.67766 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =386
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =305 prevBB =338
+computeTTCLidar roi_prev =338 m=7.947 i=169 roi_prev =338 m=7.947 i=152
+audit.ttc_lidar TTC count 12.71421
+audit.ttc_camera TTC count 7.2551
+ TTC Lidar 12.7142 TTC Camera 7.255
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.18143 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.826 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 388]
+SEL_NN with n=394 matches in 5.56743 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =394
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =321 prevBB =305
+computeTTCLidar roi_prev =305 m=7.891 i=152 roi_prev =305 m=7.891 i=160
+audit.ttc_lidar TTC count 14.1911
+audit.ttc_camera TTC count -37.4421
+ TTC Lidar 14.191 TTC Camera -37.442
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.92288 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 329.255 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 398]
+SEL_NN with n=388 matches in 5.46327 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =388
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =319 prevBB =321
+computeTTCLidar roi_prev =321 m=7.844 i=160 roi_prev =321 m=7.844 i=159
+audit.ttc_lidar TTC count 16.78941
+audit.ttc_camera TTC count 12.61121
+ TTC Lidar 16.7894 TTC Camera 12.6112
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.89844 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.374 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 402]
+SEL_NN with n=398 matches in 5.23474 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =398
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =340 prevBB =319
+computeTTCLidar roi_prev =319 m=7.7945 i=159 roi_prev =319 m=7.7945 i=170
+audit.ttc_lidar TTC count 15.84651
+audit.ttc_camera TTC count 73.76171
+ TTC Lidar 15.8465 TTC Camera 73.7617
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.1024 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 307.689 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 410]
+SEL_NN with n=402 matches in 5.83293 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =402
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =345 prevBB =340
+computeTTCLidar roi_prev =340 m=7.734 i=170 roi_prev =340 m=7.734 i=172
+audit.ttc_lidar TTC count 12.88351
+audit.ttc_camera TTC count 19.91561
+ TTC Lidar 12.8835 TTC Camera 19.9156
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.05317 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 305.727 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 413]
+SEL_NN with n=410 matches in 5.72286 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =410
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =315 prevBB =345
+computeTTCLidar roi_prev =345 m=7.67 i=172 roi_prev =345 m=7.67 i=157
+audit.ttc_lidar TTC count 12.08441
+audit.ttc_camera TTC count 16.48431
+ TTC Lidar 12.0844 TTC Camera 16.4843
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.9318 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 331.642 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 406]
+SEL_NN with n=413 matches in 6.0723 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =413
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =307 prevBB =315
+computeTTCLidar roi_prev =315 m=7.612 i=157 roi_prev =315 m=7.612 i=153
+audit.ttc_lidar TTC count 13.22411
+audit.ttc_camera TTC count 4.917071
+ TTC Lidar 13.2241 TTC Camera 4.91707
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.90034 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 311.391 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+SEL_NN with n=406 matches in 5.69167 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =406
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =302 prevBB =307
+computeTTCLidar roi_prev =307 m=7.554 i=153 roi_prev =307 m=7.554 i=151
+audit.ttc_lidar TTC count 13.12411
+audit.ttc_camera TTC count 12.05121
+ TTC Lidar 13.1241 TTC Camera 12.0512
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.89279 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 312.5 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+SEL_NN with n=405 matches in 5.63119 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =405
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =278 prevBB =302
+computeTTCLidar roi_prev =302 m=7.487 i=151 roi_prev =302 m=7.487 i=139
+audit.ttc_lidar TTC count 11.27461
+audit.ttc_camera TTC count 10.9981
+ TTC Lidar 11.2746 TTC Camera 10.998
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.2735 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.684 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 403]
+SEL_NN with n=404 matches in 6.04541 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =404
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =300 prevBB =278
+computeTTCLidar roi_prev =278 m=7.429 i=139 roi_prev =278 m=7.429 i=150
+audit.ttc_lidar TTC count 12.90861
+audit.ttc_camera TTC count 5.381621
+ TTC Lidar 12.9086 TTC Camera 5.38162
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.29707 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 309.489 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+SEL_NN with n=403 matches in 5.80716 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =403
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =300 prevBB =300
+computeTTCLidar roi_prev =300 m=7.347 i=150 roi_prev =300 m=7.347 i=150
+audit.ttc_lidar TTC count 9.059781
+ TTC Lidar 9.05978 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.92154 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 307.565 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+SEL_NN with n=404 matches in 5.87638 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =404
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =314 prevBB =300
+computeTTCLidar roi_prev =300 m=7.274 i=150 roi_prev =300 m=7.274 i=157
+audit.ttc_lidar TTC count 10.06441
+audit.ttc_camera TTC count 110.4491
+ TTC Lidar 10.0644 TTC Camera 110.449
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.67244 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.165 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 400]
+SEL_NN with n=394 matches in 5.7026 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =394
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =305 prevBB =314
+computeTTCLidar roi_prev =314 m=7.199 i=157 roi_prev =314 m=7.199 i=152
+audit.ttc_lidar TTC count 9.698631
+audit.ttc_camera TTC count 23.11261
+ TTC Lidar 9.69863 TTC Camera 23.1126
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.15711 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 322.983 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+SEL_NN with n=400 matches in 5.82317 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =400
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =286 prevBB =305
+computeTTCLidar roi_prev =305 m=7.1155 i=152 roi_prev =305 m=7.1155 i=143
+audit.ttc_lidar TTC count 8.621571
+audit.ttc_camera TTC count -inf1
+ TTC Lidar 8.62157 TTC Camera -inf
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.63975 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 322.856 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 414]
+SEL_NN with n=405 matches in 5.7594 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =405
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =288 prevBB =286
+computeTTCLidar roi_prev =286 m=7.0415 i=143 roi_prev =286 m=7.0415 i=144
+audit.ttc_lidar TTC count 9.615521
+audit.ttc_camera TTC count 6.477581
+ TTC Lidar 9.61552 TTC Camera 6.47758
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.71304 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 324.858 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 422]
+SEL_NN with n=414 matches in 5.92767 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =414
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =273 prevBB =288
+computeTTCLidar roi_prev =288 m=6.969 i=144 roi_prev =288 m=6.969 i=136
+audit.ttc_lidar TTC count 9.712411
+audit.ttc_camera TTC count -10.40371
+ TTC Lidar 9.71241 TTC Camera -10.4037
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.50627 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 309.258 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 426]
+SEL_NN with n=422 matches in 6.25094 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =422
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =295 prevBB =273
+computeTTCLidar roi_prev =273 m=6.887 i=136 roi_prev =273 m=6.887 i=147
+audit.ttc_lidar TTC count 8.49881
+ TTC Lidar 8.4988 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.86145 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 327.741 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 391]
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)0
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.70499 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.088 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 386]
+# keypoints removed = 129
+SEL_KNN with n=262 matches in 5.91514 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =262
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
+audit.ttc_camera TTC count 13.23421
+ TTC Lidar 12.6156 TTC Camera 13.2342
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.55166 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 335.207 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+# keypoints removed = 144
+SEL_KNN with n=242 matches in 6.09245 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =242
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =305 prevBB =338
+computeTTCLidar roi_prev =338 m=7.947 i=169 roi_prev =338 m=7.947 i=152
+audit.ttc_lidar TTC count 12.71421
+audit.ttc_camera TTC count 8.511571
+ TTC Lidar 12.7142 TTC Camera 8.51157
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.73468 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 330.915 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 388]
+# keypoints removed = 123
+SEL_KNN with n=271 matches in 5.91752 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =271
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =321 prevBB =305
+computeTTCLidar roi_prev =305 m=7.891 i=152 roi_prev =305 m=7.891 i=160
+audit.ttc_lidar TTC count 14.1911
+audit.ttc_camera TTC count 25.67091
+ TTC Lidar 14.191 TTC Camera 25.6709
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.03306 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.07 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 398]
+# keypoints removed = 134
+SEL_KNN with n=254 matches in 6.40325 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =254
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =319 prevBB =321
+computeTTCLidar roi_prev =321 m=7.844 i=160 roi_prev =321 m=7.844 i=159
+audit.ttc_lidar TTC count 16.78941
+audit.ttc_camera TTC count 12.61121
+ TTC Lidar 16.7894 TTC Camera 12.6112
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.82267 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 324.781 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 402]
+# keypoints removed = 120
+SEL_KNN with n=278 matches in 6.39857 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =278
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =340 prevBB =319
+computeTTCLidar roi_prev =319 m=7.7945 i=159 roi_prev =319 m=7.7945 i=170
+audit.ttc_lidar TTC count 15.84651
+audit.ttc_camera TTC count 8.795751
+ TTC Lidar 15.8465 TTC Camera 8.79575
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.01911 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 315.799 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 410]
+# keypoints removed = 116
+SEL_KNN with n=286 matches in 6.56364 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =286
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =345 prevBB =340
+computeTTCLidar roi_prev =340 m=7.734 i=170 roi_prev =340 m=7.734 i=172
+audit.ttc_lidar TTC count 12.88351
+audit.ttc_camera TTC count 15.59241
+ TTC Lidar 12.8835 TTC Camera 15.5924
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.88267 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 309.495 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 413]
+# keypoints removed = 134
+SEL_KNN with n=276 matches in 6.24139 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =276
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =315 prevBB =345
+computeTTCLidar roi_prev =345 m=7.67 i=172 roi_prev =345 m=7.67 i=157
+audit.ttc_lidar TTC count 12.08441
+audit.ttc_camera TTC count 7.768581
+ TTC Lidar 12.0844 TTC Camera 7.76858
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.14217 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 332.723 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 406]
+# keypoints removed = 125
+SEL_KNN with n=288 matches in 6.38976 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =288
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =307 prevBB =315
+computeTTCLidar roi_prev =315 m=7.612 i=157 roi_prev =315 m=7.612 i=153
+audit.ttc_lidar TTC count 13.22411
+audit.ttc_camera TTC count 7.950091
+ TTC Lidar 13.2241 TTC Camera 7.95009
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.19991 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 307.099 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+# keypoints removed = 135
+SEL_KNN with n=271 matches in 6.23772 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =271
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =302 prevBB =307
+computeTTCLidar roi_prev =307 m=7.554 i=153 roi_prev =307 m=7.554 i=151
+audit.ttc_lidar TTC count 13.12411
+audit.ttc_camera TTC count 12.05121
+ TTC Lidar 13.1241 TTC Camera 12.0512
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.67243 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.194 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+# keypoints removed = 136
+SEL_KNN with n=269 matches in 6.08373 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =269
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =278 prevBB =302
+computeTTCLidar roi_prev =302 m=7.487 i=151 roi_prev =302 m=7.487 i=139
+audit.ttc_lidar TTC count 11.27461
+audit.ttc_camera TTC count 10.9981
+ TTC Lidar 11.2746 TTC Camera 10.998
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.94286 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 330.043 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 403]
+# keypoints removed = 124
+SEL_KNN with n=280 matches in 6.03454 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =280
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =2
+ currBB =300 prevBB =278
+computeTTCLidar roi_prev =278 m=7.429 i=139 roi_prev =278 m=7.429 i=150
+audit.ttc_lidar TTC count 12.90861
+audit.ttc_camera TTC count 10.58951
+ TTC Lidar 12.9086 TTC Camera 10.5895
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.21613 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.52 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 404]
+# keypoints removed = 122
+SEL_KNN with n=281 matches in 5.78015 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =281
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =300 prevBB =300
+computeTTCLidar roi_prev =300 m=7.347 i=150 roi_prev =300 m=7.347 i=150
+audit.ttc_lidar TTC count 9.059781
+ TTC Lidar 9.05978 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.05314 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 305.309 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 394]
+# keypoints removed = 120
+SEL_KNN with n=284 matches in 6.13152 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =284
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =314 prevBB =300
+computeTTCLidar roi_prev =300 m=7.274 i=150 roi_prev =300 m=7.274 i=157
+audit.ttc_lidar TTC count 10.06441
+ TTC Lidar 10.0644 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.24818 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 304.879 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 400]
+# keypoints removed = 122
+SEL_KNN with n=272 matches in 6.18257 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =272
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =305 prevBB =314
+computeTTCLidar roi_prev =314 m=7.199 i=157 roi_prev =314 m=7.199 i=152
+audit.ttc_lidar TTC count 9.698631
+audit.ttc_camera TTC count -inf1
+ TTC Lidar 9.69863 TTC Camera -inf
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.95715 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 322.503 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 405]
+# keypoints removed = 108
+SEL_KNN with n=292 matches in 5.91218 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =292
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =286 prevBB =305
+computeTTCLidar roi_prev =305 m=7.1155 i=152 roi_prev =305 m=7.1155 i=143
+audit.ttc_lidar TTC count 8.621571
+audit.ttc_camera TTC count -inf1
+ TTC Lidar 8.62157 TTC Camera -inf
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.01425 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 325.942 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 414]
+# keypoints removed = 122
+SEL_KNN with n=283 matches in 6.28982 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =283
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =288 prevBB =286
+computeTTCLidar roi_prev =286 m=7.0415 i=143 roi_prev =286 m=7.0415 i=144
+audit.ttc_lidar TTC count 9.615521
+ TTC Lidar 9.61552 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.10578 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 326.601 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 422]
+# keypoints removed = 136
+SEL_KNN with n=278 matches in 6.14243 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =278
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =273 prevBB =288
+computeTTCLidar roi_prev =288 m=6.969 i=144 roi_prev =288 m=6.969 i=136
+audit.ttc_lidar TTC count 9.712411
+ TTC Lidar 9.71241 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRISK MAT_FLANN MAT_FLANN DES_HOG SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.37795 ms
+#5 : DETECT KEYPOINTS done =500
+BRISK descriptor extraction in 306.913 ms
+#6 : EXTRACT DESCRIPTORS done =[64 x 426]
+# keypoints removed = 116
+SEL_KNN with n=306 matches in 6.49299 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =306
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =3
+ currBB =295 prevBB =273
+computeTTCLidar roi_prev =273 m=6.887 i=136 roi_prev =273 m=6.887 i=147
+audit.ttc_lidar TTC count 8.49881
+ TTC Lidar 8.4988 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.32951 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.39331 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)0
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.53244 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.3101 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.64261 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
+ TTC Lidar 12.6156 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.56555 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.54338 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.61453 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =305 prevBB =338
+computeTTCLidar roi_prev =338 m=7.947 i=169 roi_prev =338 m=7.947 i=152
+audit.ttc_lidar TTC count 12.71421
+audit.ttc_camera TTC count -46.7041
+ TTC Lidar 12.7142 TTC Camera -46.704
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.76563 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.40853 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.6692 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =321 prevBB =305
+computeTTCLidar roi_prev =305 m=7.891 i=152 roi_prev =305 m=7.891 i=160
+audit.ttc_lidar TTC count 14.1911
+audit.ttc_camera TTC count 5.582421
+ TTC Lidar 14.191 TTC Camera 5.58242
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.68895 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.46891 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.74328 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =319 prevBB =321
+computeTTCLidar roi_prev =321 m=7.844 i=160 roi_prev =321 m=7.844 i=159
+audit.ttc_lidar TTC count 16.78941
+audit.ttc_camera TTC count 13.73191
+ TTC Lidar 16.7894 TTC Camera 13.7319
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.81816 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.23679 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.93951 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =340 prevBB =319
+computeTTCLidar roi_prev =319 m=7.7945 i=159 roi_prev =319 m=7.7945 i=170
+audit.ttc_lidar TTC count 15.84651
+audit.ttc_camera TTC count 50.09591
+ TTC Lidar 15.8465 TTC Camera 50.0959
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.21325 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.42534 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.72178 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =345 prevBB =340
+computeTTCLidar roi_prev =340 m=7.734 i=170 roi_prev =340 m=7.734 i=172
+audit.ttc_lidar TTC count 12.88351
+audit.ttc_camera TTC count 8.956761
+ TTC Lidar 12.8835 TTC Camera 8.95676
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.32911 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.4687 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.77999 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =4
+ currBB =315 prevBB =345
+computeTTCLidar roi_prev =345 m=7.67 i=172 roi_prev =345 m=7.67 i=157
+audit.ttc_lidar TTC count 12.08441
+audit.ttc_camera TTC count -0.1493571
+ TTC Lidar 12.0844 TTC Camera -0.149357
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.23987 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.6146 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.89464 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =307 prevBB =315
+computeTTCLidar roi_prev =315 m=7.612 i=157 roi_prev =315 m=7.612 i=153
+audit.ttc_lidar TTC count 13.22411
+audit.ttc_camera TTC count 15.13911
+ TTC Lidar 13.2241 TTC Camera 15.1391
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.91746 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.60665 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.77921 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =302 prevBB =307
+computeTTCLidar roi_prev =307 m=7.554 i=153 roi_prev =307 m=7.554 i=151
+audit.ttc_lidar TTC count 13.12411
+audit.ttc_camera TTC count -199.6611
+ TTC Lidar 13.1241 TTC Camera -199.661
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.20552 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.34774 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.92652 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =278 prevBB =302
+computeTTCLidar roi_prev =302 m=7.487 i=151 roi_prev =302 m=7.487 i=139
+audit.ttc_lidar TTC count 11.27461
+audit.ttc_camera TTC count 11.62831
+ TTC Lidar 11.2746 TTC Camera 11.6283
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.09392 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.35361 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.90172 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =300 prevBB =278
+computeTTCLidar roi_prev =278 m=7.429 i=139 roi_prev =278 m=7.429 i=150
+audit.ttc_lidar TTC count 12.90861
+ TTC Lidar 12.9086 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.32053 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.38819 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.89538 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =300 prevBB =300
+computeTTCLidar roi_prev =300 m=7.347 i=150 roi_prev =300 m=7.347 i=150
+audit.ttc_lidar TTC count 9.059781
+ TTC Lidar 9.05978 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.30224 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.54032 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 3.00623 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =314 prevBB =300
+computeTTCLidar roi_prev =300 m=7.274 i=150 roi_prev =300 m=7.274 i=157
+audit.ttc_lidar TTC count 10.06441
+audit.ttc_camera TTC count 14.77591
+ TTC Lidar 10.0644 TTC Camera 14.7759
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.26055 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.46191 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.98425 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =7
+ currBB =305 prevBB =314
+computeTTCLidar roi_prev =314 m=7.199 i=157 roi_prev =314 m=7.199 i=152
+audit.ttc_lidar TTC count 9.698631
+ TTC Lidar 9.69863 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.96201 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.19856 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.67769 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =286 prevBB =305
+computeTTCLidar roi_prev =305 m=7.1155 i=152 roi_prev =305 m=7.1155 i=143
+audit.ttc_lidar TTC count 8.621571
+ TTC Lidar 8.62157 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.67656 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.24113 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.63506 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =288 prevBB =286
+computeTTCLidar roi_prev =286 m=7.0415 i=143 roi_prev =286 m=7.0415 i=144
+audit.ttc_lidar TTC count 9.615521
+audit.ttc_camera TTC count 9.975841
+ TTC Lidar 9.61552 TTC Camera 9.97584
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.01389 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.5727 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.76369 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =5
+ currBB =273 prevBB =288
+computeTTCLidar roi_prev =288 m=6.969 i=144 roi_prev =288 m=6.969 i=136
+audit.ttc_lidar TTC count 9.712411
+audit.ttc_camera TTC count 14.6951
+ TTC Lidar 9.71241 TTC Camera 14.695
+joinVec(audit.ttc_camera)1
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_NN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.22914 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.1258 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+SEL_NN with n=500 matches in 2.70484 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =500
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =6
+ currBB =295 prevBB =273
+computeTTCLidar roi_prev =273 m=6.887 i=136 roi_prev =273 m=6.887 i=147
+audit.ttc_lidar TTC count 8.49881
+ TTC Lidar 8.4988 TTC Camera nan
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)1
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 7.82827 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.13738 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+joinVec(audit.ttc_camera)0
+joinVec(audit.ttc_lidar)0
+
+
+START ORB BRIEF MAT_BF MAT_BF DES_BINARY SEL_KNN
+#1 : LOAD IMAGE INTO BUFFER done
+#2 : DETECT & CLASSIFY OBJECTS done
+#3 : CROP LIDAR POINTS done
+#4 : CLUSTER LIDAR POINT CLOUD done
+detectorType ORB
+ORB detection with n= 500 keypoints in 8.02741 ms
+#5 : DETECT KEYPOINTS done =500
+BRIEF descriptor extraction in 2.49764 ms
+#6 : EXTRACT DESCRIPTORS done =[32 x 500]
+# keypoints removed = 279
+SEL_KNN with n=221 matches in 3.05104 ms
+#7 : MATCH KEYPOINT DESCRIPTORS done =221
+#8 : TRACK 3D OBJECT BOUNDING BOXES done =2
+ currBB =338 prevBB =326
+computeTTCLidar roi_prev =326 m=8.01 i=163 roi_prev =326 m=8.01 i=169
+audit.ttc_lidar TTC count 12.61561
