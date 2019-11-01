@@ -159,8 +159,8 @@ std::string joinVec(vector<long> v)
 }
 void log(ofstream &detector_file, AuditLog &audit) {
 
-    cout << "joinVec(audit.ttc_camera)" << audit.ttc_camera.size()  << endl;
-    cout << "joinVec(audit.ttc_lidar)" << audit.ttc_lidar.size()  << endl;
+    cout << "joinVec(audit.ttc_camera)" << audit.ttc_camera   << endl;
+    cout << "joinVec(audit.ttc_lidar)" << audit.ttc_lidar   << endl;
 
     detector_file << "{" << endl;
 
@@ -171,8 +171,8 @@ void log(ofstream &detector_file, AuditLog &audit) {
     detector_file << "'descriptorType':'" << audit.config.descriptorType  << "'," << endl;
     detector_file << "'matcherType':'" << audit.config.matcherType  << "'," << endl;
 
-    detector_file << "'ttc_camera':'" << joinVec(audit.ttc_camera) << "'," << endl;
-    detector_file << "'ttc_lidar':'" << joinVec(audit.ttc_lidar) << "'," << endl;
+    detector_file << "'ttc_camera':'" <<  audit.ttc_camera  << "'," << endl;
+    detector_file << "'ttc_lidar':'" <<  audit.ttc_lidar  << "'," << endl;
 
     detector_file << "'matcherTypeMetric':'" << audit.config.matcherTypeMetric << "'," << endl;
     detector_file << "'matcherTypeSelector':'" << audit.config.matcherTypeSelector  << "'," << endl;
@@ -557,7 +557,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                         bVis = config3d.bVisTTC; //true;
                         bool bSave = config3d.bSaveImg; //true;
-                        if (bVis || bSave)
+                        if ( bVis || bSave )
                         {
                             cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();
                             showLidarImgOverlay(visImg, currBB->lidarPoints, P_rect_00, R_rect_00, RT, &visImg);

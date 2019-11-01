@@ -64,8 +64,8 @@ struct AuditLog {
     Config3DObjectTrack config ;
     std::string image_name ="";
     std::string lidar_file_name ="";
-    std::vector<long> ttc_camera;
-    std::vector<long> ttc_lidar;
+    long ttc_camera;
+    long ttc_lidar;
 
     bool isError = false;
     long match_time = 0;

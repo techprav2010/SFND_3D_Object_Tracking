@@ -215,7 +215,7 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     double dT = 1 / frameRate;
     TTC = -dT / (1 - medDistRatio);
     //audit
-    audit.ttc_camera.push_back(TTC);
+    audit.ttc_camera = TTC;
     cout << "audit.ttc_camera TTC count " << TTC << audit.ttc_camera.size() << endl;
     // EOF STUDENT TASK
 }
@@ -272,8 +272,8 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     TTC = medianXCurr * dT * 1.0 / (medianXPrev - medianXCurr);
 
     //audit
-    audit.ttc_lidar.push_back(TTC);
-    cout << "audit.ttc_lidar TTC count " << TTC << audit.ttc_lidar.size() << endl;
+    audit.ttc_lidar = TTC;
+    cout << "audit.ttc_lidar TTC  " << TTC << audit.ttc_lidar  << endl;
     //todo: should use the median or mean ?
 }
 
