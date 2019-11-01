@@ -213,8 +213,8 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     long medIndex = floor(distRatios.size() / 2.0);
     double medDistRatio = distRatios.size() % 2 == 0 ? (distRatios[medIndex - 1] + distRatios[medIndex]) / 2.0 : distRatios[medIndex]; // compute median dist. ratio to remove outlier influence
 
-    double dT = 1 / frameRate;
-    TTC = -dT / (1 - medDistRatio);
+    double dT = 1 * 1.0  / frameRate;
+    TTC = -dT * 1.0 / (1 - medDistRatio);
     //audit
     audit.ttc_camera = TTC;
     cout << "audit.ttc_camera TTC   " << TTC << audit.ttc_camera << endl;
