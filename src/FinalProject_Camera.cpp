@@ -550,7 +550,13 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                         //// TASK FP.4 -> compute time-to-collision based on camera (implement -> computeTTCCamera)
                         double ttcCamera;
                         clusterKptMatchesWithROI(*currBB, (dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->kptMatches , config3d, audit);
-                        computeTTCCamera((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, currBB->kptMatches, sensorFrameRate, ttcCamera, config3d, audit);
+                        if(currBB->kptMatches.size() > 0) {
+                            computeTTCCamera((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
+                                             currBB->kptMatches, sensorFrameRate, ttcCamera, config3d, audit);
+                        }
+                        else
+                            ttcCamera = NAN;
+
                         //// EOF STUDENT ASSIGNMENT
 
                         cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;

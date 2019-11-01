@@ -205,7 +205,7 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     if (distRatios.size() == 0)
     {
         TTC = NAN;
-        cout << "audit.ttc_camera TTC   " << TTC << audit.ttc_camera << endl;
+        cout << "computeTTCCamera audit.ttc_camera TTC  NAN "  << endl;
         return;
     }
     // STUDENT TASK (replacement for meanDistRatio)
@@ -217,7 +217,7 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     TTC = -dT * 1.0 / (1 - medDistRatio);
     //audit
     audit.ttc_camera = TTC;
-    cout << "audit.ttc_camera TTC   " << TTC << audit.ttc_camera << endl;
+    cout << "computeTTCCamera audit.ttc_camera TTC   " << TTC  << endl;
     // EOF STUDENT TASK
 }
 
@@ -255,7 +255,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     if (roi_prev.size() == 0 || roi_cur.size()==0 )
     {
         TTC = NAN;
-        cout << "audit.ttc_lidar TTC   " << TTC << audit.ttc_camera << endl;
+        cout << "computeTTCLidar audit.ttc_lidar TTC  NAN " <<    endl;
         return;
     }
 
@@ -275,8 +275,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 
     //audit
     audit.ttc_lidar = TTC;
-    cout << "audit.ttc_lidar TTC  " << TTC << audit.ttc_lidar  << endl;
-    //todo: should use the median or mean ?
+    cout << "computeTTCLidar audit.ttc_lidar TTC  " << TTC   << endl;
 }
 
 
