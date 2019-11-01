@@ -237,8 +237,8 @@ void log_audit(ofstream &detector_file, AuditLog &audit) {
     detector_file << "," << audit.config.matcherTypeMetric;
     detector_file << "," << audit.config.matcherTypeSelector;
 
-    detector_file << ",\"" << joinVec(audit.ttc_camera) << "\""  ;
-    detector_file << ",\"" << joinVec(audit.ttc_lidar) << "\""  ;
+    detector_file << ",\"" <<  audit.ttc_camera  << "\""  ;
+    detector_file << ",\"" <<  audit.ttc_lidar  << "\""  ;
 
 
     detector_file << "," << audit.detect_time;
