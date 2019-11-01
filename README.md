@@ -42,7 +42,7 @@ In this final project, you will implement the missing parts in the schematic. To
 
 ## Benchmark
 
-### audit log :  collect experiment data
+### audit log :  collect every experiment's data
 * Added new code to capture KPI, metrics from various experiments (with combinations of alogrithms detectors, descriptors and match algorithms).
 * Used 'struct' to keep track of experiments - Config2DFeatTrack and AuditLog 
     ```c++  
@@ -263,16 +263,16 @@ In this final project, you will implement the missing parts in the schematic. To
     run_test_all.log
     
     results.csv
-    ```
-  error,image_name,lidar_file_name,detectorType,descriptorType,matcherType,matcherTypeMetric,matcherTypeSelector,ttc_camera,ttc_lidar,detect_time,desc_time,match_time,detect_keypoints_size,match_keypoints_size,match_removed_keypoints_size,bVis,bLimitKpts,maxKeypoints,bVisshow3DObjects
-  0,../images/KITTI/2011_09_26/image_02/data/0000000000.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000000.bin,FAST,BRISK,MAT_BF,DES_BINARY,SEL_NN,"","",1,346,0,1864,0,0,0,0,50,0
-  0,../images/KITTI/2011_09_26/image_02/data/0000000001.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000001.bin,FAST,BRISK,MAT_BF,DES_BINARY,SEL_NN,"-9223372036854775808","12",1,325,40,1898,1806,0,0,0,50,0
-  0,../images/KITTI/2011_09_26/image_02/data/0000000002.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000002.bin,FAST,BRISK,MAT_BF,DES_BINARY,SEL_NN,"-21","12",1,335,36,1865,1841,0,0,0,50,0
-   ...
-  0,../images/KITTI/2011_09_26/image_02/data/0000000016.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000016.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"11","9",0,322,31,1934,1871,0,0,0,50,0
-  0,../images/KITTI/2011_09_26/image_02/data/0000000017.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000017.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"0","9",1,323,31,1946,1877,0,0,0,50,0
-  0,../images/KITTI/2011_09_26/image_02/data/0000000018.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000018.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"0","8",1,325,31,1961,1872,0,0,0,50,0
-  0,../images/KITTI/2011_09_26/image_02/data/0000000000.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000000.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_KNN,"","",1,325,0,1864,0,0,0,0,50,0
+    ``` 
+          error,image_name,lidar_file_name,detectorType,descriptorType,matcherType,matcherTypeMetric,matcherTypeSelector,ttc_camera,ttc_lidar,detect_time,desc_time,match_time,detect_keypoints_size,match_keypoints_size,match_removed_keypoints_size,bVis,bLimitKpts,maxKeypoints,bVisshow3DObjects
+          0,../images/KITTI/2011_09_26/image_02/data/0000000000.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000000.bin,FAST,BRISK,MAT_BF,DES_BINARY,SEL_NN,"","",1,346,0,1864,0,0,0,0,50,0
+          0,../images/KITTI/2011_09_26/image_02/data/0000000001.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000001.bin,FAST,BRISK,MAT_BF,DES_BINARY,SEL_NN,"-9223372036854775808","12",1,325,40,1898,1806,0,0,0,50,0
+          0,../images/KITTI/2011_09_26/image_02/data/0000000002.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000002.bin,FAST,BRISK,MAT_BF,DES_BINARY,SEL_NN,"-21","12",1,335,36,1865,1841,0,0,0,50,0
+           ...
+          0,../images/KITTI/2011_09_26/image_02/data/0000000016.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000016.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"11","9",0,322,31,1934,1871,0,0,0,50,0
+          0,../images/KITTI/2011_09_26/image_02/data/0000000017.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000017.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"0","9",1,323,31,1946,1877,0,0,0,50,0
+          0,../images/KITTI/2011_09_26/image_02/data/0000000018.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000018.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"0","8",1,325,31,1961,1872,0,0,0,50,0
+          0,../images/KITTI/2011_09_26/image_02/data/0000000000.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000000.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_KNN,"","",1,325,0,1864,0,0,0,0,50,0
   ...
      
     ```
