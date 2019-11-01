@@ -259,6 +259,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
         return;
     }
 
+    //use median to avoid outliers.
     std::sort(roi_prev.begin(), roi_prev.end());
     std::sort(roi_cur.begin(), roi_cur.end());
 
@@ -291,6 +292,7 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
         {
             for (auto matchIt = matches.begin(); matchIt != matches.end(); ++matchIt)
             {
+                //if match is on within boundingBoxes or both prev and cuurent. increment count
                 bool matrchInCurrFrame = (curIt->roi.contains(currFrame.keypoints[matchIt->trainIdx].pt));
                 bool matrchInPrevFrame =  (prevIt->roi.contains(prevFrame.keypoints[matchIt->queryIdx].pt)) ;
                 if(matrchInCurrFrame && matrchInPrevFrame)
@@ -303,6 +305,7 @@ void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &b
     }
     for(auto &matchedPair: matchedPairMultimap)
     {
+        //if count is above threshold, we will use it
         if ( matchedPair.second >  threshold){
 //            std::cout << "{(" << matchedPair.first[0] << ","<< matchedPair.first[1]
 //                      << "), " << matchedPair.second  << "}" << endl;

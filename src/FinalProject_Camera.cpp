@@ -652,12 +652,14 @@ int main(int argc, const char *argv[])
     }
     // load configuration
     vector<Config3DObjectTrack> configList;  //shortTest=true/false . run all combination of all or shorter list
-    if(singleTest){
+    if(singleTest)
+    {
+        //capture images for these 4 test cases
         configList.push_back(getConfigListSingle(1));
         configList.push_back(getConfigListSingle(2));
         configList.push_back(getConfigListSingle(3));
         configList.push_back(getConfigListSingle(4));
-        configList.push_back(getConfigListSingle(5));
+//        configList.push_back(getConfigListSingle(5));//default
         file_prefix = "one";
     }
     else if(shortTest)
