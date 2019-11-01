@@ -42,7 +42,7 @@ In this final project, you will implement the missing parts in the schematic. To
 
 ## Benchmark
 
-### audit log for m looping multiple options and collect experiment data
+### audit log :  collect experiment data
 * Added new code to capture KPI, metrics from various experiments (with combinations of alogrithms detectors, descriptors and match algorithms).
 * Used 'struct' to keep track of experiments - Config2DFeatTrack and AuditLog 
     ```c++  
@@ -307,7 +307,7 @@ In this final project, you will implement the missing parts in the schematic. To
            ]
     ``` 
  
-## Solution - SFND 3D Object Tracking Part I: Solution Description
+## Solution - SFND 3D Object Tracking 
 ### FP.1 Match 3D Objects
 * Code is functional and returns the specified output, where each bounding box is assigned the match candidate 
     with the highest number of occurrences.
