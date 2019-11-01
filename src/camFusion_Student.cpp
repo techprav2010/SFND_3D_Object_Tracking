@@ -269,7 +269,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     cout << "computeTTCLidar roi_prev =" << roi_prev.size()  << " m=" << medianXCurr << " i=" << medIndexP;
     cout << " roi_prev =" << roi_prev.size()  << " m=" << medianXCurr << " i=" << medIndexC << endl;
     // compute TTC from both measurements
-    TTC = medianXPrev * dT * 1.0 / (medianXPrev - medianXCurr);
+    TTC = medianXCurr * dT * 1.0 / (medianXPrev - medianXCurr);
 
     //audit
     audit.ttc_lidar.push_back(TTC);

@@ -38,9 +38,7 @@ In this final project, you will implement the missing parts in the schematic. To
 
 
 ## Code
-* I added code for variuos opencv algorithms for - keypoint detectors, descriptor, and matchers from two consecutive images.
-* I used  KNN match selection (k=2) and performed descriptor distance ratio filtering with t=0.8 in file `matching2D.cpp`.
-* Created test results by running combination of algorithms for - keypoint detectors, descriptor, and matchers against KITTI images.
+
 
 ## Benchmark
 

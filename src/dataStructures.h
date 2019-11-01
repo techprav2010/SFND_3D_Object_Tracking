@@ -55,6 +55,7 @@ struct Config3DObjectTrack {
     bool bWait3DObjects= false;
 
     bool bVisTTC= false;
+    bool bSaveImg = true;
 
 };
 

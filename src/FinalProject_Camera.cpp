@@ -7,6 +7,11 @@
 #include <vector>
 #include <cmath>
 #include <limits>
+
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+
 #include <opencv2/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -24,30 +29,38 @@ using namespace std;
 
 
 /////////////////////// audit log with multiple configurations /////////
-vector<Config3DObjectTrack> getConfigListSingle(int use_test=1) {
+Config3DObjectTrack getConfigListSingle(int use_test=1) {
     //int use_test = 1;
     vector<Config3DObjectTrack> configList;
     Config3DObjectTrack config;
     if (use_test == 1)
     {
-        config.detectorType = "FAST";
+        config.detectorType = "SHITOMASI";
         config.descriptorType = "BRIEF";
         config.matcherType = "MAT_FLANN";
         config.matcherTypeMetric = "DES_BINARY";
         config.matcherTypeSelector = "SEL_NN";
     }
-    else  if (use_test == 2)
+    else if (use_test == 2)
     {
-        config.detectorType = "ORB";
-        config.descriptorType = "BRISK";
+        config.detectorType = "AKAZE";
+        config.descriptorType = "FREAK";
         config.matcherType = "MAT_FLANN";
         config.matcherTypeMetric = "DES_BINARY";
         config.matcherTypeSelector = "SEL_NN";
     }
-    else
+    else if (use_test == 3)
+    {
+        config.detectorType = "SHITOMASI";
+        config.descriptorType = "ORB";
+        config.matcherType = "MAT_BF";
+        config.matcherTypeMetric = "DES_BINARY";
+        config.matcherTypeSelector = "SEL_NN";
+    }
+    else if (use_test == 4)
     {
         config.detectorType = "ORB";
-        config.descriptorType = "FREAK";
+        config.descriptorType = "ORB";
         config.matcherType = "MAT_BF";
         config.matcherTypeMetric = "DES_BINARY";
         config.matcherTypeSelector = "SEL_NN";
@@ -55,13 +68,46 @@ vector<Config3DObjectTrack> getConfigListSingle(int use_test=1) {
     config.bVis = false;
     config.bLimitKpts = false;
     config.maxKeypoints = 50;
-    config.bVisshow3DObjects = true;
-    config.bWait3DObjects = true;
-    config.bVisTTC = true;
+    config.bVisshow3DObjects = false;
+    config.bWait3DObjects = false;
+    config.bVisTTC = false;
+    config.bSaveImg = true;
 
-    configList.push_back(config); 
+    return config;
+}
+
+vector<Config3DObjectTrack> getConfigListShort() {
+    vector<Config3DObjectTrack> configList;
+    vector<string> detectorTypes = { "FAST", "BRISK", "ORB", "AKAZE","SHITOMASI", "HARRIS", "SIFT"};
+    vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK"};
+
+    vector<string> matcherTypes = { "MAT_FLANN"};
+    vector<string> matcherTypeMetrics = {"DES_BINARY"};
+    vector<string> matcherTypeSelectors = {"SEL_KNN"};
+    for (auto  descriptorType:descriptorTypes) {
+        bool write_detector = false;
+
+        for (auto detectorType:detectorTypes) // start
+        {
+            for (auto matcherType:matcherTypes) {
+                for (auto matcherTypeMetric:matcherTypeMetrics) {
+                    for (auto matcherTypeSelector:matcherTypeSelectors) {
+                        Config3DObjectTrack config;
+                        config.detectorType = detectorType;
+                        config.descriptorType = descriptorType;
+                        config.matcherType = matcherType;
+                        config.matcherTypeMetric = matcherTypeMetric;
+                        config.matcherTypeSelector = matcherTypeSelector;
+
+                        configList.push_back(config);
+                    }
+                }
+            }
+        }
+    }
     return configList;
 }
+
 vector<Config3DObjectTrack> getConfigListAll() {
 
     vector<Config3DObjectTrack> configList;
@@ -96,41 +142,6 @@ vector<Config3DObjectTrack> getConfigListAll() {
             }
         }
     }
-
-
-    return configList;
-}
-vector<Config3DObjectTrack> getConfigListShort() {
-    vector<Config3DObjectTrack> configList;
-    vector<string> detectorTypes = { "FAST", "BRISK", "ORB", "AKAZE","SHITOMASI", "HARRIS", "SIFT"};
-    vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK"};
-
-    vector<string> matcherTypes = { "MAT_FLANN"};
-    vector<string> matcherTypeMetrics = {"DES_BINARY"};
-    vector<string> matcherTypeSelectors = {"SEL_KNN"};
-    for (auto  descriptorType:descriptorTypes) {
-        bool write_detector = false;
-
-        for (auto detectorType:detectorTypes) // start
-        {
-            for (auto matcherType:matcherTypes) {
-                for (auto matcherTypeMetric:matcherTypeMetrics) {
-                    for (auto matcherTypeSelector:matcherTypeSelectors) {
-                        Config3DObjectTrack config;
-                        config.detectorType = detectorType;
-                        config.descriptorType = descriptorType;
-                        config.matcherType = matcherType;
-                        config.matcherTypeMetric = matcherTypeMetric;
-                        config.matcherTypeSelector = matcherTypeSelector;
-
-                        configList.push_back(config);
-                    }
-                }
-            }
-        }
-    }
-
-
     return configList;
 }
 
@@ -257,7 +268,11 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
     // data location
     string dataPath = "../";
+    string output_folder = dataPath +"output/";
 
+    if( mkdir(output_folder.c_str(),0777) == -1 ) {
+
+    }
     // camera
     string imgBasePath = dataPath + "images/";
     string imgPrefix = "KITTI/2011_09_26/image_02/data/000000"; // left camera, color
@@ -540,8 +555,9 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                         cout << " TTC Lidar " << ttcLidar<< " TTC Camera " << ttcCamera << endl;
 
-                        bVis = config3d.bVisTTC ;//true;
-                        if (bVis)
+                        bVis = config3d.bVisTTC; //true;
+                        bool bSave = config3d.bSaveImg; //true;
+                        if (bVis || bSave)
                         {
                             cv::Mat visImg = (dataBuffer.end() - 1)->cameraImg.clone();
                             showLidarImgOverlay(visImg, currBB->lidarPoints, P_rect_00, R_rect_00, RT, &visImg);
@@ -551,11 +567,23 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
                             sprintf(str, "TTC Lidar : %f s, TTC Camera : %f s", ttcLidar, ttcCamera);
                             putText(visImg, str, cv::Point2f(80, 50), cv::FONT_HERSHEY_PLAIN, 2, cv::Scalar(0,0,255));
 
-                            string windowName = "Final Results : TTC";
-                            cv::namedWindow(windowName, 4);
-                            cv::imshow(windowName, visImg);
-                            cout << "Press key to continue to next frame" << endl;
-                            cv::waitKey(0);
+                            if(bVis)
+                            {
+                                string windowName = "Final Results : TTC";
+                                cv::namedWindow(windowName, 4);
+                                cv::imshow(windowName, visImg);
+                                cout << "Press key to continue to next frame" << endl;
+                                cv::waitKey(0);
+                            }
+
+                            if (bSave)
+                            {
+                                string  test_prefix = config3d.detectorType +  "_" + config3d.descriptorType + "_"  +config3d.matcherType + "_" +config3d.matcherTypeSelector + " " + config3d.matcherTypeMetric;
+                                string saveImgFullFilename = output_folder  + "/" + test_prefix + "_" + imgNumber.str() + ".png";
+                                const char *cp_saveImgFullFilename = saveImgFullFilename.c_str();
+                                cv::imwrite(cp_saveImgFullFilename, visImg);
+                            }
+
                         }
                         bVis = false;
 
@@ -598,9 +626,9 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 int main(int argc, const char *argv[])
 {
     // use singleTest &  singleTestConfig for one experiment
-    bool singleTest = true;
-    bool singleTestConfig = 2; //change to use other single test
-    bool shortTest = false;
+    bool singleTest = false;
+   // bool singleTestConfig = 2; //change to use other single test
+    bool shortTest = true;
     string file_prefix = "short";
     //if argument is passed should be = single/short/all
     if (argc > 0 ) {
@@ -619,7 +647,11 @@ int main(int argc, const char *argv[])
     // load configuration
     vector<Config3DObjectTrack> configList;  //shortTest=true/false . run all combination of all or shorter list
     if(singleTest){
-        configList = getConfigListSingle(singleTestConfig);
+        configList.push_back(getConfigListSingle(1));
+        configList.push_back(getConfigListSingle(2));
+        configList.push_back(getConfigListSingle(3));
+        configList.push_back(getConfigListSingle(4));
+        configList.push_back(getConfigListSingle(5));
         file_prefix = "one";
     }
     else if(shortTest)
