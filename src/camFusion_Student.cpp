@@ -205,6 +205,7 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     if (distRatios.size() == 0)
     {
         TTC = NAN;
+        cout << "audit.ttc_camera TTC   " << TTC << audit.ttc_camera << endl;
         return;
     }
     // STUDENT TASK (replacement for meanDistRatio)
@@ -216,7 +217,7 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
     TTC = -dT / (1 - medDistRatio);
     //audit
     audit.ttc_camera = TTC;
-    cout << "audit.ttc_camera TTC count " << TTC << audit.ttc_camera.size() << endl;
+    cout << "audit.ttc_camera TTC   " << TTC << audit.ttc_camera << endl;
     // EOF STUDENT TASK
 }
 
@@ -254,6 +255,7 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     if (roi_prev.size() == 0 || roi_cur.size()==0 )
     {
         TTC = NAN;
+        cout << "audit.ttc_lidar TTC   " << TTC << audit.ttc_camera << endl;
         return;
     }
 
