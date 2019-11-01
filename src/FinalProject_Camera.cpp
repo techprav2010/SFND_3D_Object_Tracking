@@ -584,7 +584,7 @@ int run_3D_object_tracking(Config3DObjectTrack &config3d, vector<AuditLog> audit
 
                             if (bSave)
                             {
-                                string  test_prefix = config3d.detectorType +  "_" + config3d.descriptorType + "_"  +config3d.matcherType + "_" +config3d.matcherTypeSelector + " " + config3d.matcherTypeMetric;
+                                string  test_prefix = config3d.detectorType +  "_" + config3d.descriptorType + "_"  +config3d.matcherType + "_" +config3d.matcherTypeSelector + "_" + config3d.matcherTypeMetric;
                                 string saveImgFullFilename = output_folder  + "/" + test_prefix + "_" + imgNumber.str() + ".png";
                                 const char *cp_saveImgFullFilename = saveImgFullFilename.c_str();
                                 cv::imwrite(cp_saveImgFullFilename, visImg);
