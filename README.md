@@ -499,7 +499,10 @@ the euclidean distance between them in relation to all the matches in the boundi
 * Several examples (2-3) have been identified and described in detail. The assertion that the TTC is off has been based on manually estimating the distance to the
  rear of the preceding vehicle from a top view perspective of the Lidar points.
  
-Observation: TTC Lidar increases evne though the vehicle in front is braking. 
+Observation: TTC Lidar increases even though the vehicle in front is braking 
+and distance between ego and front car is reducing. 
+In this case actually TTC should decrease,if we handle the outliers correctly.
+
 ### case 1 : AKAZE_FREAK_MAT_FLANN_SEL_KNN_DES_BINARY DES_BINARY_0003 to 0004 
 ![output/AKAZE_FREAK_MAT_FLANN_SEL_KNN_DES_BINARY_0003.png](output/AKAZE_FREAK_MAT_FLANN_SEL_KNN_DES_BINARY_0003.png)
 
@@ -525,6 +528,22 @@ Observation: TTC Lidar increases evne though the vehicle in front is braking.
  on a frame-by-frame basis. To facilitate comparison, a spreadsheet and graph should be used to represent the different TTCs. 
   
  Observation:   
+```$csv
+it seems the difference between 'ttc_camera' and 'ttc_lidar' is less in first three rows.
+
+                    ttc_camera 	ttc_lidar 	detect_time 	desc_time 	match_time 	detect_keypoints_size 	match_keypoints_size 	match_removed_keypoints_size 	bVis 	bLimitKpts 	maxKeypoints 	bVisshow3DObjects
+  descriptorType detectorType 												
+     BRISK 	ORB 	11.825688 	11.333333 	7.486842 	318.388158 	3.388158 	500.000000 	329.519737 	51.480263 	0.0 	0.0 	50.0 	0.0
+     FREAK 	BRISK 	12.298611 	11.333333 	360.072368 	60.651316 	50.697368 	2983.526316 	1720.375000 	603.835526 	0.0 	0.0 	50.0 	0.0
+     FREAK  FAST 	13.388430 	11.333333 	0.756579 	53.809211 	29.190789 	1870.210526 	1177.131579 	472.763158 	0.0 	0.0 	50.0 	0.0
+     SIFT 	FAST 	14.476190 	11.333333 	0.848684 	87.447368 	18.500000 	1870.210526 	778.000000 	105.500000 	0.0 	0.0 	50.0 	0.0
+     BRISK 	BRISK 	17.140845 	11.267606 	358.940789 	344.032895 	70.907895 	2983.526316 	2061.605263 	756.342105 	0.0 	0.0 	50.0 	0.0
+     ORB 	BRISK 	33.885496 	11.266667 	365.144737 	8.743421 	61.907895 	2983.526316 	1929.493421 	836.980263 	0.0 	0.0 	50.0 	0.0
+     BRISK 	FAST 	39.048780 	11.333333 	0.730263 	323.223684 	31.059211 	1870.210526 	1262.184211 	448.552632 	0.0 	0.0 	50.0 	0.0
+     BRIEF 	FAST 	41.393162 	11.333333 	0.703947 	5.875000 	25.302632 	1870.210526 	1342.664474 	283.861842 	0.0 	0.0 	50.0 	0.0
+
+```
+## Various tests details.
 
 ### Single run 1 (FAST,BRIEF,MAT_FLANN,DES_BINARY,SEL_NN) 
 
