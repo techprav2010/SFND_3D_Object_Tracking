@@ -45,7 +45,50 @@ In this final project, you will implement the missing parts in the schematic. To
 ## code
 
 
-
+### Audit logs:  collect every experimental data
+* Capture KPI, metrics from various experiments (with combinations of algorithms detectors, descriptors and matchers).
+* 'struct' to keep track of experiments: Config2DFeatTrack and AuditLog 
+    ```c++  
+        
+        //struct to hold experiment's configuration
+        struct Config3DObjectTrack {
+            std::string detectorType = "SHITOMASI";
+            std::string descriptorType = "BRISK"; // BRIEF, ORB, FREAK, AKAZE, SIFT
+        
+            std::string matcherType = "MAT_BF";        // MAT_BF, MAT_FLANN
+            std::string matcherTypeMetric = "DES_BINARY"; // DES_BINARY, DES_HOG
+            std::string matcherTypeSelector = "SEL_NN";       // SEL_NN, SEL_KNN
+        
+            bool bVis = false;
+            bool bLimitKpts = false;
+            int maxKeypoints = 50;
+        
+            bool bVisshow3DObjects= false;
+            bool bWait3DObjects= false;
+        
+            bool bVisTTC= false;
+        
+        };
+        
+        //struct to hold experiment's audit log
+        struct AuditLog {
+            Config3DObjectTrack config ;
+            std::string image_name ="";
+            std::string lidar_file_name ="";
+            std::vector<long> ttc_camera;
+            std::vector<long> ttc_lidar;
+        
+            bool isError = false;
+            long match_time = 0;
+            long match_keypoints_size = 0;
+            long match_removed_keypoints_size = 0;
+            long desc_time  = 0;
+            long detect_time = 0;
+            long detect_keypoints_size = 0;
+        };
+       
+        
+   ```
 ### Run Experiment : Run one  or more combinations of algorithms. 
     Choose one of the 3 configuration initialization.
     
@@ -99,50 +142,7 @@ In this final project, you will implement the missing parts in the schematic. To
  
        ```
   
-### audit log :  collect every experiment's data
-* Added new code to capture KPI, metrics from various experiments (with combinations of alogrithms detectors, descriptors and match algorithms).
-* Used 'struct' to keep track of experiments - Config2DFeatTrack and AuditLog 
-    ```c++  
-        
-        //struct to hold experiment's configuration
-        struct Config3DObjectTrack {
-            std::string detectorType = "SHITOMASI";
-            std::string descriptorType = "BRISK"; // BRIEF, ORB, FREAK, AKAZE, SIFT
-        
-            std::string matcherType = "MAT_BF";        // MAT_BF, MAT_FLANN
-            std::string matcherTypeMetric = "DES_BINARY"; // DES_BINARY, DES_HOG
-            std::string matcherTypeSelector = "SEL_NN";       // SEL_NN, SEL_KNN
-        
-            bool bVis = false;
-            bool bLimitKpts = false;
-            int maxKeypoints = 50;
-        
-            bool bVisshow3DObjects= false;
-            bool bWait3DObjects= false;
-        
-            bool bVisTTC= false;
-        
-        };
-        
-        //struct to hold experiment's audit log
-        struct AuditLog {
-            Config3DObjectTrack config ;
-            std::string image_name ="";
-            std::string lidar_file_name ="";
-            std::vector<long> ttc_camera;
-            std::vector<long> ttc_lidar;
-        
-            bool isError = false;
-            long match_time = 0;
-            long match_keypoints_size = 0;
-            long match_removed_keypoints_size = 0;
-            long desc_time  = 0;
-            long detect_time = 0;
-            long detect_keypoints_size = 0;
-        };
-       
-        
-   ```
+
  
 ### Run multiple tests: Dynamically create an array of Config2DFeatTrack.
     There 3 choices depending on how many test case you want to run. 
