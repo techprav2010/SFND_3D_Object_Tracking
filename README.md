@@ -32,16 +32,73 @@ In this final project, you will implement the missing parts in the schematic. To
 1. Clone this repo.
 2. Make a build directory in the top level project directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./3D_object_tracking`.
+4. Run it: `./3D_object_tracking`. 
+    * `./3D_object_tracking single`
+    * `./3D_object_tracking short`
+    * `./3D_object_tracking all`
 
 
 
 
-## Code
 
 
-## Benchmark
+## code
 
+
+
+### Run Experiment : Run one  or more combinations of algorithms. 
+    Choose one of the 3 configuration initialization.
+    
+    'MidTermProject_Camera_Student.cpp -> main'  
+    valid arguments are  = single/short/all
+   * ./3D_object_tracking single
+   * ./3D_object_tracking short
+   * ./3D_object_tracking all
+   
+    ```c++
+       //'MidTermProject_Camera_Student.cpp -> main'
+       // use singleTest &  singleTestConfig for one experiment
+           bool singleTest = true;
+           bool singleTestConfig = 2; //change to use other single test
+           bool shortTest = false;
+           string file_prefix = "short";
+           //if argument is passed should be = single/short/all
+           if (argc > 0 ) {
+               if(argv[0] == "single"){
+                   singleTest = true;
+               }
+               if(argv[0] == "short"){
+                   singleTest = false;
+                   shortTest = true;
+               }
+               if(argv[0] == "all"){
+                   singleTest = false;
+                   shortTest = false;
+               }
+           }
+           // load configuration
+           vector<Config3DObjectTrack> configList;  //shortTest=true/false . run all combination of all or shorter list
+           Dif(singleTest){
+                configList.push_back(getConfigListSingle(1));
+                configList.push_back(getConfigListSingle(2));
+                configList.push_back(getConfigListSingle(3));
+                configList.push_back(getConfigListSingle(4));
+                //configList.push_back(getConfigListSingle(5)); //default
+                file_prefix = "one";
+            }
+            else if(shortTest)
+            {
+                configList = getConfigListShort();
+                file_prefix = "short";
+            }
+            else
+            {
+                configList = getConfigListAll();
+                file_prefix = "all";
+            }
+ 
+       ```
+  
 ### audit log :  collect every experiment's data
 * Added new code to capture KPI, metrics from various experiments (with combinations of alogrithms detectors, descriptors and match algorithms).
 * Used 'struct' to keep track of experiments - Config2DFeatTrack and AuditLog 
@@ -86,12 +143,13 @@ In this final project, you will implement the missing parts in the schematic. To
        
         
    ```
-* Now dynamically create a array of Config2DFeatTrack - combinations of algorithms.
-    there 3 choices depending on how many test case you want to run.
+ 
+### Run multiple tests: Dynamically create an array of Config2DFeatTrack.
+    There 3 choices depending on how many test case you want to run. 
+    Methods:  getConfigListSingle or getConfigListShort getConfigListAll
     
-    ```c++
-        
-  
+    ```c++  
+    
         //choose single with visualization
        Config3DObjectTrack getConfigListSingle(int use_test=1) {
            //int use_test = 1;
@@ -135,8 +193,7 @@ In this final project, you will implement the missing parts in the schematic. To
            config.bVisshow3DObjects = false;
            config.bWait3DObjects = false;
            config.bVisTTC = false;
-           config.bSaveImg = true;
-       
+           config.bSaveImg = true; 
            return config;
        }
        
@@ -175,7 +232,6 @@ In this final project, you will implement the missing parts in the schematic. To
        vector<Config3DObjectTrack> getConfigListAll() {
        
            vector<Config3DObjectTrack> configList;
-           //vector<string> detectorTypes = {"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
            vector<string> detectorTypes = { "FAST", "BRISK", "ORB", "AKAZE","SHITOMASI", "HARRIS", "SIFT"};
            vector<string> descriptorTypes = {"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
        
@@ -204,61 +260,13 @@ In this final project, you will implement the missing parts in the schematic. To
            }
            return configList;
        }
-
-
+ 
         ...
         ...
 
      ```
- * To run all combinations of algorithms or one set of algorithm. 
-    choose one of the 3 configuration initialization.
-    Please change 'singleTest' in 'MidTermProject_Camera_Student.cpp -> main'. or 
-    pass single argument  = single/short/all
-    ```c++
-       //'MidTermProject_Camera_Student.cpp -> main'
-       // use singleTest &  singleTestConfig for one experiment
-           bool singleTest = true;
-           bool singleTestConfig = 2; //change to use other single test
-           bool shortTest = false;
-           string file_prefix = "short";
-           //if argument is passed should be = single/short/all
-           if (argc > 0 ) {
-               if(argv[0] == "single"){
-                   singleTest = true;
-               }
-               if(argv[0] == "short"){
-                   singleTest = false;
-                   shortTest = true;
-               }
-               if(argv[0] == "all"){
-                   singleTest = false;
-                   shortTest = false;
-               }
-           }
-           // load configuration
-           vector<Config3DObjectTrack> configList;  //shortTest=true/false . run all combination of all or shorter list
-           Dif(singleTest){
-                configList.push_back(getConfigListSingle(1));
-                configList.push_back(getConfigListSingle(2));
-                configList.push_back(getConfigListSingle(3));
-                configList.push_back(getConfigListSingle(4));
-                //configList.push_back(getConfigListSingle(5)); //default
-                file_prefix = "one";
-            }
-            else if(shortTest)
-            {
-                configList = getConfigListShort();
-                file_prefix = "short";
-            }
-            else
-            {
-                configList = getConfigListAll();
-                file_prefix = "all";
-            }
  
-       ```
-   
- * output of log outputed into three files
+### output : audit logs into three files. execution logs, csv, json.
     
     run_test_all.log
     
@@ -273,7 +281,7 @@ In this final project, you will implement the missing parts in the schematic. To
           0,../images/KITTI/2011_09_26/image_02/data/0000000017.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000017.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"0","9",1,323,31,1946,1877,0,0,0,50,0
           0,../images/KITTI/2011_09_26/image_02/data/0000000018.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000018.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_NN,"0","8",1,325,31,1961,1872,0,0,0,50,0
           0,../images/KITTI/2011_09_26/image_02/data/0000000000.png,../images/KITTI/2011_09_26/velodyne_points/data/0000000000.bin,FAST,BRISK,MAT_FLANN,DES_BINARY,SEL_KNN,"","",1,325,0,1864,0,0,0,0,50,0
-  ...
+    ...
      
     ```
      results.json
@@ -307,11 +315,11 @@ In this final project, you will implement the missing parts in the schematic. To
            ]
     ``` 
  
-## Solution - SFND 3D Object Tracking 
+## Rubric - SFND 3D Object Tracking 
 ### FP.1 Match 3D Objects
 * Code is functional and returns the specified output, where each bounding box is assigned the match candidate 
     with the highest number of occurrences.
-* Implementation: given prev and current bounding boxes, return thresholded boxIds with mactching ROI in both bounding boxes.
+* Implementation: Given prev and current bounding boxes, return thresholded boxIds with matching ROI in both bounding boxes.
     ``` c++
           void matchBoundingBoxes (std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame, Config3DObjectTrack &config3d, AuditLog &audit)
           {
@@ -352,7 +360,7 @@ In this final project, you will implement the missing parts in the schematic. To
 * Code is functional and returns the specified output. Also, the code is able to deal with
  outlier Lidar points in a statistically robust way to avoid severe estimation errors. 
 
-* Implementation: calulate TTC (Time To Collision) given lidar points, optimize to avoid outliers.
+* Implementation: calculate TTC (Time To Collision) given front lane lidar points, optimize TTC to considering the outliers.
     ``` c++ 
             void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
                                  std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC, Config3DObjectTrack &config3d, AuditLog &audit)
@@ -425,10 +433,9 @@ the euclidean distance between them in relation to all the matches in the boundi
 
 ##FP.4 Compute Camera-based TTC 
 *  Code is functional and returns the specified output. Also, the code is able to deal with outlier correspondences in
- a statistically robust way to avoid severe estimation errors.
+ a statistically robust way to avoid severe estimation errors. 
 
-
-* Implementation:  Compute time-to-collision (TTC) based on keypoint correspondences in successive images, avoid outliers
+* Implementation:  Compute time-to-collision (TTC) based on keypoint correspondences in successive images, consider avoiding the outliers.
    
    ``` c++
            void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr,
@@ -513,13 +520,13 @@ Observation: TTC Lidar increases evne though the vehicle in front is braking.
 ![output/BRISK_ORB_MAT_FLANN_SEL_KNN_DES_BINARY_0004.png](output/BRISK_ORB_MAT_FLANN_SEL_KNN_DES_BINARY_0004.png) 
 
 
- ## FP.6 Performance Evaluation 2 
+## FP.6 Performance Evaluation 2 
  * All detector / descriptor combinations implemented in previous chapters have been compared with regard to the TTC estimate 
  on a frame-by-frame basis. To facilitate comparison, a spreadsheet and graph should be used to represent the different TTCs. 
   
  Observation:   
 
-### single run 1 (FAST,BRIEF,MAT_FLANN,DES_BINARY,SEL_NN) 
+### Single run 1 (FAST,BRIEF,MAT_FLANN,DES_BINARY,SEL_NN) 
 
 [one_results_1.csv](./one_results_1.csv)
 
@@ -530,39 +537,37 @@ Observation: TTC Lidar increases evne though the vehicle in front is braking.
 ![images/test1/imag7.jpg](images/test1/imag7.jpg)
 ![images/test1/imag8.jpg](images/test1/imag8.jpg)
 
-### single run 2 (FAST,BRIEF,MAT_FLANN,DES_BINARY,SEL_NN)
+### Single run 2 (FAST,BRIEF,MAT_FLANN,DES_BINARY,SEL_NN)
 [one_results_1.csv](./one_results_1.csv)
 [one_results_1.json](./one_results_1.json)
 
 [one_results_3.csv](./one_results_3.csv)
 [one_results_3.json](./one_results_3.json)
 
-### short run 1  
+### Short run 1  
 [short_results_1.csv](./short_results_1.csv)
 [short_results_1.json](./short_results_1.json)
 
-### short run 2  
+### Short run 2  
 [short_results_2.csv](./short_results_2.csv)
 [short_results_2.json](./short_results_2.json) 
  
-### short run 3  
+### Short run 3  
 [short_results_3.csv](./short_results_3.csv)
 [short_results_3.json](./short_results_3.json) 
  
  
-### all run ( have to stop it due to GPU usage) 
+### All run ( have to stop it due to GPU usage) 
 [results.csv](./results.csv)
 [results.json](./results.json) 
 
- ## anylysis 
- * report_analysis.ipynb to peek into various csv files .  
+## Anylysis 
+ * report_analysis.ipynb is used to peek into various csv files .  
  
  [report_analysis.md](./report_analysis.md)
  [report_analysis2.md](./report_analysis2.md)
   
- ## extract form  report_analysis.ipynb 
-  
-  
+ ## extract form  report_analysis.ipynb  
 
 ```python
 import pandas as pd
